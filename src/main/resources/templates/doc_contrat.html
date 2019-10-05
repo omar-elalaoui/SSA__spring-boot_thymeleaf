@@ -1,0 +1,90 @@
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <title>&ensp;</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" />
+
+    <!-- Invoice Print Style -->
+    <link rel="stylesheet" th:href="@{/stylesheets/invoice-print.css}" />
+</head>
+
+<body>
+<div class="invoice contrat">
+
+    <div class="cont">
+
+
+        <div class="title">
+            CONTRAT D'ARCHITECTURE
+        </div>
+        <br><br>
+
+        <div class="body">
+
+            <div class="ch_label"><b>ENTRE:</b></div>
+            <div class="label_content">
+
+                Monsieur :………....……YOUSSEF MACIRI…………….......Architecte <br>
+                Demeurant à : IMMEUBLE MAISON DE L’AVOCAT, BUREAU N° 540  <br>
+                <span class="agadir">BD HASSAN II AGADIR …………………......................</span>
+                <div class="part"><u>D'une part</u></div>
+
+            </div>
+            <br>
+
+            <div class="ch_label"><b>ET:</b></div>
+            <div class="label_content">
+
+                Monsieur ………………….......…………….....………………………..… <br>
+                Demeurant à ………….......…….....……….………….………….….……. <br>
+                <div class="part"><u>D'une part</u></div>
+
+            </div>
+            <br>
+
+
+            <div class="ch_label"><b>IL A ETE CONVENU ET ARRETE CE QUI SUIT :</b></div>
+            <div class="label_content">
+
+                Monsieur …………………..………………………………...…Confie à <br>
+                Monsieur : YOUSSEF MACIRI qui accepte, La conception et la surveillance de ………………………………..........…………………… <br>
+                <u>sis :</u> ………………………………………................................................ <br>
+                conformément aux plans autorisés par la commune et à en assurer la responsabilité et la bonne réalisation par les visites de chantier jusqu’à la délivrance du permis d’habiter, ou de certificat de conformité. <br>
+                Monsieur : …………………………………………s’engage à aviser
+                L’architecte du commencement des travaux, avant l’ouverture du chantier.
+
+            </div>
+
+            <br>
+            <div class="fait_a">
+                Fait à Agadir, le
+            </div>
+
+
+        </div>
+        <br>
+
+        <div class="footer">
+            <div class="left"><u>L’ARCHITECTE</u></div>
+            <div class="right"><u>LE PROPRIETAIRE</u></div>
+        </div>
+        <br><br>
+        <div class="signature">
+            <u>SIGNATURE LEGALISEES.</u>
+        </div>
+
+
+        <br>
+        <br>
+    </div>
+
+    <script>
+        window.print();
+    </script>
+
+</div>
+</body>
+
+</html>

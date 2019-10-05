@@ -114,14 +114,14 @@
                     <tr>
                         <td>
 
-                            <a href="ch_print_demande.html" class="btn btn-info print_button"><i class="fa fa-print"></i> Imprimer</a>
+                            <a th:href="@{/documents/contrat}" class="btn btn-info print_button"><i class="fa fa-print"></i> Imprimer</a>
                         </td>
                         <td>
                             <select class="form-control mb-md docSelect">
-                                <option value="ch_print_contrat_architecture.html">Contrat</option>
-                                <option value="ch_print_demande.html">Demande</option>
-                                <option value="ch_print_declaration.html">Declaration</option>
-                                <option value="ch_print_demande.html">Attestation fin travaux</option>
+                                <option value="/documents/contrat">Contrat</option>
+                                <option value="/documents/demande">Demande</option>
+                                <option value="/documents/declaration">Declaration</option>
+                                <option value="">Attestation fin travaux</option>
                             </select>
                         </td>
                     </tr>
@@ -134,6 +134,5 @@
     </section>
 
 </div>
-
 </body>
 </html>

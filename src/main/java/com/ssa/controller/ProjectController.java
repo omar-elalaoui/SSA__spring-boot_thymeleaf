@@ -6,8 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/project")
-public class projectController {
+@RequestMapping("/projects")
+public class ProjectController {
+    
+    @GetMapping("")
+    public String projects() {
+        return "projets";
+    }
+    
+    @GetMapping("add")
+    public String add() {
+        return "project_add";
+    }
     
     @GetMapping("/fiche")
     public String project_fiche(Model model) {

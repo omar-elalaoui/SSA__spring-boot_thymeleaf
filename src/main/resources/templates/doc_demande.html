@@ -1,0 +1,94 @@
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>&ensp;</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" />
+
+    <!-- Invoice Print Style -->
+    <link rel="stylesheet" th:href="@{/stylesheets/invoice-print.css}" />
+</head>
+
+<body>
+<div class="invoice demande">
+
+    <div class="cont">
+        <div class="head">
+            ROYAUME DU MAROC <br>
+            MINISTRE DE L’INTERIEUR <br>
+            PROVINCE : …………………………… <br>
+            COMMUNE : …………………………… <br>
+        </div>
+        <br>
+
+        <div class="header text-center">
+            DOSSIER DEMANDE D’AUTORISATION DE CONSTRUCTION <br>
+            OU DE LOTISSEMNT OU LA CREATION D’UN GROUPE <br>
+            D’HABITATION OU LE MORCELLEMENT FONCIERE. <br>
+        </div>
+
+        <br>
+
+
+        <div class="body">
+
+            Nous avons l’honneur de monsieur le président du Conseil Communal ....................................................... <br>
+            L’autorisation de : Construire, de Lotir, de Créer un groupe d’habitation ou de Morceler (1) sur la Base des données suivante : <br>
+            Nom et prénom du Pétitionnaire : ..................................................................................... <br>
+            Représenté par : .................................................................................................................<br>
+            Nationalité : ..............................MAROCAINE............................... <br>
+            C.I.N n° : ........................................................................................................................... <br>
+            Date de naissance : ............................................................................................................ <br>
+            Fils de : ..............................................................................................................................<br>
+            Et de : ................................................................................................................................<br>
+            Profession : ........................................................................................................................<br>
+            Domicile : ..........................................................................................................................<br>
+            Lieu des travaux : ................................................................................................................... <br>
+            Nom de l’architecte : .....................YOUSSEF MACIRI.................... <br>
+            Durée probable des travaux : ........................12MOIS........................ <br>
+            Surface du terrain (m²) :................................................................................................................................ <br>
+            Surface Bâtie (m²) : ...................................................................................................................................... <br>
+            Surface planchers : ....................................................................................................................................... <br>
+            Valeur approximative de la construction (DH) : .......................................................................................... <br>
+            Prix du mètre carré couvert (m²) : ................................................................................................................ <br>
+            Nombre de lot : ............................................................................................................................................. <br>
+            Nombre de logement : .................................................................................................................................. <br>
+            Nombre de pièce habitable(PUS) : ……….……………………………………………………………….. <br>
+
+            <span class="line_cases">Destination du Projet : &ensp; Vente <span class="case"></span>&ensp; Location <span class="case"></span>&ensp; Usage <span class="case"></span>&ensp; Personnel <span class="case"></span></span> <br>
+
+            Ancienne autorisation délivrée le :………………Sous N°………………<br>
+            <div class="last">
+                Je m’engage en qualité de propriétaire, copropriétaire (1) de la propriété, sis :.........................................................................................................................<br>
+                Objet du TF n° ..........................................................................
+                <div class="small">
+                    En vertu des lois et règlement en vigueur a respecter les conditions dans lesquelles
+                    Cette autorisation m’a été accordée. <br>
+                    Je m’engage, notamment a respecter les plans approuvés ‘NE VARITEUR’ et joints a cette autorisation Le défaut de conformité des travaux exécutés aux plans approuvés est en vertu des lois et règlement en Vigueur une infraction qui peut être sanctionnée par la destruction que j’assume a mes frais et sous ma
+                    Responsabilité.
+                </div>
+            </div>
+
+            <div class="signatures">
+                <div class="signature_left">
+                    SIGNATURE DU PETITIONNAIRE <br>
+                    <span class="caption">(Légalisée)</span>
+                </div>
+                <div class="signature_right">
+                    SIGNATURE DU PROPRIETAIRE <br>
+                    <span class="caption">(Légalisée)</span>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script>
+        window.print();
+
+    </script>
+</div>
+</body>
+
+</html>

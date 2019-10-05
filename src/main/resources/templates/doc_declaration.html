@@ -1,0 +1,90 @@
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>&ensp;</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" />
+
+    <!-- Invoice Print Style -->
+    <link rel="stylesheet" th:href="@{/stylesheets/invoice-print.css}" />
+</head>
+
+<body>
+<div class="invoice declaration">
+
+    <div class="cont">
+        <br>
+        <div class="head">
+
+            <div class="left">
+                ROYAUME DU MAROC <br>
+                PROVINCE : …………………………………. <br>
+                COMMUNE URBAINE : ……………………. <br>
+            </div>
+
+            <div class="right">
+                REDEVANCE D’OCCUPATION <br>
+                TEMPORAIRE DU DOMAINE <br>
+                PUBLIC COMMUNEL POUR UN <br>
+                USAGE LIE A LA CONSTRUCTION <br>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="title">
+            DECLARATION
+        </div>
+        <br><br>
+
+        <div class="body">
+
+            &ensp;&ensp; A joindre à la demande de l’autorisation d’occupation du domaine public
+            communal <br> déposée sous N° ……………………………………, le……………………………
+
+
+            <li>Nom et prénom au raison sociale : ......................................................................</li>
+            <li>Adresse de la résidence habituelle ou principal établissement : </li> &ensp;&ensp;&ensp;............................................................................................................................ <br>
+            &ensp;&ensp;&ensp;............................................................................................................................
+            <li>Référence de l’autorisation de construire</li>
+            &ensp;&ensp;(Numéro et date) : ...........………………………………………………………
+            <li>Nature de l’occupation (*) :</li>
+            <br>
+            <div class="occupation_list">
+                <ul>
+                    <li><span></span>Dépôts de matériels</li>
+                    <li><span></span>Dépôts de matériaux</li>
+                    <li><span></span>Clôtures</li>
+                    <li><span></span>Saillies dues échafaudages</li>
+                    <li><span></span>Autres (1)</li>
+                </ul>
+            </div>
+            <div>
+                (*) Cocher la mention utile. <br>
+                (1) préciser la nature de l’occupation ci-après : ....................................................<br>
+                <li class="surface">Superficie occupée : &ensp; &ensp; &ensp; m²</li>
+                <br>
+                <span>Je soussigné certifie exactes les indications consignées sur la présente déclaration.</span>
+            </div>
+        </div>
+        <br>
+        <div class="footer">
+            <div class="left">FAIT à :……………………</div>
+            <div class="right">LE DECLARENT</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <script>
+        window.print();
+
+    </script>
+
+</div>
+</body>
+
+</html>
