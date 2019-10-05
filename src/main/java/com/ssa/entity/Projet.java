@@ -15,5 +15,9 @@ import javax.persistence.Id;
 public class Projet {
     @Id
     private String ref;
+    private FicheProjet ficheProjet;
+    private DescProjet descProjet;
+    private PJointes pJointes;
+    private SuiviChantier suiviChantier;
 
 }
