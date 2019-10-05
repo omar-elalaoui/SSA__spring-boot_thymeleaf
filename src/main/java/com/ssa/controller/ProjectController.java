@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/project")
-public class projectController {
+public class ProjectController {
     
     @GetMapping("/fiche")
     public String project_fiche(Model model) {
