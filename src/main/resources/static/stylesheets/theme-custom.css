@@ -1,0 +1,347 @@
+
+.ch_project_list_item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+a, a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+td {
+     vertical-align: middle !important;
+}
+
+table{
+    font-size: 15px;
+}
+
+.hand{
+    cursor: pointer;
+}
+
+.ch_project_list_item{
+    cursor: pointer;
+}
+
+/* Add here all your CSS customizations */
+.nav-active{
+    background: #191c21;
+}
+.sidebar-title{
+    font-weight: bold;
+    color: #abb4be !important;
+}
+.userbox.s{
+    margin-top: 7px !important;
+}
+.userbox.s .name{
+    font-weight: 700;
+    color: aliceblue;
+}
+.userbox .profile-info.s{
+    margin-left: 5px;
+}
+.handC{
+    cursor: pointer;
+}
+
+/***** tables *****/
+table i{
+    cursor: pointer;
+    font-size: 15px;
+}
+table thead{
+    background-color: #ecedf0;
+}
+
+/***** Modal *****/
+.modal-body{
+    padding: 0px !important;
+}
+
+.modal-body .panel-body form{
+    margin-bottom: 0 !important;
+}
+/***** Spacing *****/
+.om-tab{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.om-tab2{
+    padding-left: 6em;
+    color: #777;
+    font-size: 17px;
+}
+.om-mb{
+    margin-bottom: 8px !important;
+}
+
+
+/******Panels******/
+.om-panel-s .panel-heading{
+    padding: 13px;
+}
+.om-panel-s .panel-title{
+    font-size: 18px;
+}
+
+
+
+/*slide-menu*/
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.clear{
+  clear: both;
+}
+
+
+.slide-toggle{
+  display: none;
+}
+
+.slidemenu{
+  font-family: arial, sans-serif;
+  max-width: 600px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.slidemenu label{
+  width: 25%;
+  text-align: center;
+  display: block;
+  float: left;
+  color: #333;
+  opacity: 0.2;
+
+}
+
+.slidemenu label:hover{
+  cursor: pointer;
+  color: #666;
+}
+
+.slidemenu label span{
+  display: block;
+  padding: 10px;    
+}
+
+.slidemenu label .icon{
+  font-size: 20px;
+  border: solid 2px #333;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+  line-height: 50px;
+  border-radius: 50%;
+}
+
+.slider{
+  width: 100%;
+  height: 5px;
+  display: block;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.slider .bar{
+  width: 25%;
+  height: 5px;
+  background: #333;
+  border-radius: 5px;
+}
+
+.slidemenu label, .slider .bar {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+.slidemenu .slide-toggle.activeDoc + label{
+  opacity: 1;
+}
+
+
+
+.ficheBar{ margin-left: 0; }
+.descBar{ margin-left: 25%; }
+.suiviBar{ margin-left: 50%; }
+.peicesBar{ margin-left: 75%; }
+
+
+/*Ismail*/
+.clock-container {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    bottom: 400px;
+    right: 20px;
+}
+}
+
+.clock {
+	position:relative;
+	font-family:monaco,consolas,"courier new",monospace;
+	font-size:3.5rem;
+	line-height:1.375;
+}
+
+.clock:before,
+.clock:after {
+	position:absolute;
+	top:0;
+	bottom:0;
+	content:':';
+	z-index:2;
+	line-height:1.15;
+	color:#333;
+    
+}
+
+.clock:before {
+	left:2.325em;
+}
+
+.clock:after {
+	right:2.325em;
+}
+
+.clock span {
+	position:relative;
+	display:inline-block;
+	padding:0 .25em;
+	margin:0 .06125em;
+	z-index:1;
+
+	-webkit-transform:perspective(750);
+	-moz-transform:perspective(750);
+	-ms-transform:perspective(750);
+	transform:perspective(750);
+
+	-webkit-transform-style:preserve-3d;
+	-moz-transform-style:preserve-3d;
+	-ms-transform-style:preserve-3d;
+	transform-style:preserve-3d;
+}
+
+.clock span:first-child {
+	margin-left:0;
+}
+
+.clock span:last-child {
+	margin-right:0;
+}
+
+.clock span:nth-child(2),
+.clock span:nth-child(4) {
+	margin-right:.3em;
+}
+
+.clock span:nth-child(3),
+.clock span:nth-child(5) {
+	margin-left:.3em;
+}
+
+.clock span:before,
+.clock span:after {
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	color:#eee;
+	text-shadow:0 1px 0 #fff;
+	background:#333;
+	border-radius:.125em;
+	outline:1px solid transparent; /* fix jagged edges in ff */
+
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	backface-visibility:hidden;
+
+	-webkit-transition:-webkit-transform .75s, opacity .75s;
+	-moz-transition:-moz-transform .75s, opacity .75s;
+	-ms-transition:-ms-transform .75s, opacity .75s;
+	transition:transform .75s, opacity .75s;
+}
+
+.clock span:before {
+	opacity:1;
+	z-index:1;
+	content:attr(data-old);
+
+	-webkit-transform-origin:0 0;
+	-moz-transform-origin:0 0;
+	-ms-transform-origin:0 0;
+	transform-origin:0 0;
+
+	-webkit-transform:translate3d(0,0,0) rotateX(0);
+	-moz-transform:translate3d(0,0,0) rotateX(0);
+	-ms-transform:translate3d(0,0,0) rotateX(0);
+	transform:translate3d(0,0,0) rotateX(0);
+}
+
+.clock span:after {
+	opacity:0;
+	z-index:2;
+	content:attr(data-now);
+	-webkit-transform-origin:0 100%;
+	-moz-transform-origin:0 100%;
+	-ms-transform-origin:0 100%;
+	transform-origin:0 100%;
+
+	-webkit-transform:translate3d(0,-102.5%,0) rotateX(90deg);
+	-moz-transform:translate3d(0,-102.5%,0) rotateX(90deg);
+	-ms-transform:translate3d(0,-102.5%,0) rotateX(90deg);
+	transform:translate3d(0,-102.5%,0) rotateX(90deg);
+}
+
+.clock .flip:before {
+	opacity:0;
+	-webkit-transform:translate3d(0,102.5%,0) rotateX(-90deg);
+	-moz-transform:translate3d(0,102.5%,0) rotateX(-90deg);
+	-ms-transform:translate3d(0,102.5%,0) rotateX(-90deg);
+	transform:translate3d(0,102.5%,0) rotateX(-90deg);
+}
+
+.clock .flip:after {
+	opacity:1;
+	-webkit-transform:translate3d(0,0,0) rotateX(0);
+	-moz-transform:translate3d(0,0,0) rotateX(0);
+	-ms-transform:translate3d(0,0,0) rotateX(0);
+	transform:translate3d(0,0,0) rotateX(0);
+}
+
+.logo-container-sidebarheader-left {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 0px;
+    left: 15px;
+}
+.brand-name-container {
+    position: absolute;
+    height: 50px;
+    width: 150px;
+    left: 70px;
+    top: 0px;
+}
+.panel-body.panel-body-user-infos {
+    background-color: whitesmoke;
+    border: 1px outset;
+    box-shadow: 5px 10px 18px #888888;
+}
+.container-photo-profile:hover .image-profile {
+  opacity: 0.3;
+}
+
+.container-photo-profile:hover .middle-message {        
+  opacity: 1;
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+
+
+        <!-- start: page -->
+        <nav class="slidemenu">
+
+            <!-- Item 1 -->
+            <a th:href="@{/project/fiche}">
+                <i id="slide-item-1" class="slide-toggle"></i>
+                <label for="slide-item-1">
+                    <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
+                </label>
+            </a>
+
+            <!-- Item 2 -->
+            <a th:href="@{/project/description}">
+                <i id="slide-item-2" class="slide-toggle"></i>
+                <label for="slide-item-2">
+                    <p class="icon">★</p><span>Description Technique</span>
+                </label></a>
+
+            <!-- Item 3 -->
+            <a th:href="@{/project/suivi_chantier}">
+                <i id="slide-item-3" class="slide-toggle activeDoc"></i>
+                <label for="slide-item-3">
+                    <p class="icon">✈</p><span>Suivi Chantier</span>
+                </label>
+            </a>
+            <!-- Item 4 -->
+            <a th:href="@{/project/pices}">
+                <i id="slide-item-4" class="slide-toggle "></i>
+                <label for="slide-item-4">
+                    <p class="icon">✎</p><span>Peices Jointes</span>
+                </label>
+            </a>
+
+            <div class="clear"></div>
+            <!-- Bar -->
+            <div class="slider">
+                <div class="bar suiviBar"></div>
+            </div>
+
+        </nav>
+        <br>
+        <!-- start: page -->
+
+        <!-- start: page -->
+
+        <section class="panel panel-featured panel-featured-primary">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                </div>
+
+                <h2 class="panel-title">Suivi Chantier</h2>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tbody>
+                    <tr>
+                        <th>Date ouverture du chantier</th>
+                        <td>09/10/2019</td>
+                    </tr>
+                    <tr>
+                        <th>Date d'implentation</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Nom agent</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Date de fermeture</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Observations</th>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

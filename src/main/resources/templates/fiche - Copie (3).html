@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+
+
+        <!-- start: page -->
+        <nav class="slidemenu">
+
+            <!-- Item 1 -->
+            <a href="ch_fiche_projet.html">
+                <i id="slide-item-1" class="slide-toggle activeDoc"></i>
+                <label for="slide-item-1">
+                    <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
+                </label>
+            </a>
+
+            <!-- Item 2 -->
+            <a href="ch_desc_technique.html">
+                <i id="slide-item-2" class="slide-toggle"></i>
+                <label for="slide-item-2">
+                    <p class="icon">★</p><span>Description Technique</span>
+                </label></a>
+
+            <!-- Item 3 -->
+            <a href="ch_suivi_chantier.html">
+                <i id="slide-item-3" class="slide-toggle"></i>
+                <label for="slide-item-3">
+                    <p class="icon">✈</p><span>Suivi Chantier</span>
+                </label>
+            </a>
+            <!-- Item 4 -->
+            <a href="ch_peices_jointes.html">
+                <i id="slide-item-4" class="slide-toggle"></i>
+                <label for="slide-item-4">
+                    <p class="icon">✎</p><span>Peices Jointes</span>
+                </label>
+            </a>
+
+            <div class="clear"></div>
+
+            <!-- Bar -->
+            <div class="slider">
+                <div class="bar ficheBar"></div>
+            </div>
+
+        </nav>
+        <br>
+
+        <section class="panel panel-featured panel-featured-primary">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                </div>
+
+                <h2 class="panel-title">Fiche Projet</h2>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <th>Reference</th>
+                        <td>es6f7Z34</td>
+                    </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>Mohamed</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom</th>
+                        <td>Ali</td>
+                    </tr>
+                    <tr>
+                        <th>CIN</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Contacte</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Situation</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Nature du Projet</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Date entrée</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Date sortie</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Dessiné par</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Observations</th>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+
+
+        <!-- start: page -->
+        <nav class="slidemenu">
+
+            <!-- Item 1 -->
+            <a th:href="@{/project/fiche}">
+                <i id="slide-item-1" class="slide-toggle"></i>
+                <label for="slide-item-1">
+                    <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
+                </label>
+            </a>
+
+            <!-- Item 2 -->
+            <a th:href="@{/project/description}">
+                <i id="slide-item-2" class="slide-toggle"></i>
+                <label for="slide-item-2">
+                    <p class="icon">★</p><span>Description Technique</span>
+                </label></a>
+
+            <!-- Item 3 -->
+            <a th:href="@{/project/suivi_chantier}">
+                <i id="slide-item-3" class="slide-toggle "></i>
+                <label for="slide-item-3">
+                    <p class="icon">✈</p><span>Suivi Chantier</span>
+                </label>
+            </a>
+            <!-- Item 4 -->
+            <a th:href="@{/project/pices}">
+                <i id="slide-item-4" class="slide-toggle activeDoc"></i>
+                <label for="slide-item-4">
+                    <p class="icon">✎</p><span>Peices Jointes</span>
+                </label>
+            </a>
+
+            <div class="clear"></div>
+            <!-- Bar -->
+            <div class="slider">
+                <div class="bar peicesBar"></div>
+            </div>
+
+        </nav>
+        <br>
+        <!-- start: page -->
+
+        <div class="row">
+            <div class="tabs tabs-primary">
+                <ul class="nav nav-tabs ">
+                    <li class="active">
+                        <a href="#p1" data-toggle="tab">Phase <b>1</b></a>
+                    </li>
+                    <li class="">
+                        <a href="#p2" data-toggle="tab">Phase <b>2</b></a>
+                    </li>
+                    <li class="">
+                        <a href="#p3" data-toggle="tab">Phase <b>3</b></a>
+                    </li>
+                    <li class="">
+                        <a href="#p4" data-toggle="tab">Phase <b>4</b></a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="p1" class="tab-pane active">
+                        <a href="ch_peices_jointes_edit.html" class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</a>
+                        <br>
+                        <br>
+                        <br>
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>CIN ou passeport</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Contrat d'architecture</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Demande</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Declaration</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Certificat propriété</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Plan</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Liste coordnées</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>plan côté</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+
+                                </td>
+                                <td>Note de reinseignement</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="p2" class="tab-pane">
+
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Relevé de l'existant</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Photo du site</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Esquisse</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Plan DWG</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="p3" class="tab-pane">
+
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Autorisation</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>PV commission</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Plan approuvé</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Attestation d'implantation</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Plan béton armé</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>PV de suivi</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Photo d'execution</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="p4" class="tab-pane">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Photo d'achèvement</td>
+
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Fermeture de chantier</td>
+                            </tr>
+                            <tr>
+                                <td width="40%">
+                                    <a class="image-popup-no-margins" href="assets/images/projects/project-2.jpg">
+                                        <img class="img-responsive" src="assets/images/vide_img.png" width="40px" height="50px">
+                                    </a>
+                                </td>
+                                <td>Attestation fin de travauxrouvé</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>
