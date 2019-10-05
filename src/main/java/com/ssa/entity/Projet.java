@@ -11,9 +11,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
 public class Projet {
     @Id
     private String ref;
-
 }
