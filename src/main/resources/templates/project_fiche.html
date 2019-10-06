@@ -68,6 +68,8 @@
                 <h2 class="panel-title">Fiche Projet</h2>
             </header>
             <div class="panel-body">
+                <a th:href="@{'/projets/'+${fiche.ref}+'/fiche/form'}" class="btn btn-info"><i class="fa fa-edit"></i> Modifier</a>
+                <br><br>
                 <table class="table table-bordered">
                     <tbody>
                     <tr>

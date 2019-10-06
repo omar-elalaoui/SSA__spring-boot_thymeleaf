@@ -75,7 +75,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Contact</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.contact}"required>
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.contact}" required>
                                                 </div>
                                             </div>
 
@@ -132,7 +132,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Surface au sol</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_au_sol}"required>
+                                                    <input type="text" class="form-control" th:field="${projet.descProjet.surface_au_sol}" required>
                                                 </div>
                                             </div>
 
