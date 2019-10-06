@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Phase1MultipartFiles {
     private MultipartFile cin_passeport;
     private MultipartFile contrat_arch;

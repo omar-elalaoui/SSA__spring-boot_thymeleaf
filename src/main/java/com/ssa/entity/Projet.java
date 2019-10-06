@@ -16,7 +16,7 @@ public class Projet {
     private FicheProjet ficheProjet;
     @OneToOne(cascade = CascadeType.ALL)
     private DescProjet descProjet;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private PJointes pJointes;
     @OneToOne(cascade = CascadeType.ALL)
     private SuiviChantier suiviChantier;

@@ -1,5 +1,9 @@
 package com.ssa.controller;
 
+import com.ssa.dao.Phase1Repository;
+import com.ssa.dao.Phase2Repository;
+import com.ssa.dao.Phase3Repository;
+import com.ssa.dao.Phase4Repository;
 import com.ssa.entity.*;
 import com.ssa.service.SsaUtil;
 import com.ssa.service.impl.DescProjetServiceImpl;
@@ -7,10 +11,12 @@ import com.ssa.service.impl.FicheProjetServiceImpl;
 import com.ssa.service.impl.ProjetServiceImpl;
 import com.ssa.service.impl.SuiviChantierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/projets")
@@ -24,7 +30,14 @@ public class ProjectController {
     DescProjetServiceImpl descProjetService;
     @Autowired
     SuiviChantierServiceImpl suiviChantierService;
-    
+    @Autowired
+    Phase1Repository phase1Service;
+    @Autowired
+    Phase2Repository phase2Service;
+    @Autowired
+    Phase3Repository phase3Service;
+    @Autowired
+    Phase4Repository phase4Service;
     
     
     @GetMapping("/add")
@@ -76,7 +89,7 @@ public class ProjectController {
     public String project_pices(Model model, @PathVariable(value="id") String id) {
         Projet projet= projetService.findById(id);
         model.addAttribute("project_id", projet.getRef());
-        return "project_pices";
+        return "project_pices_phase1";
     }
     //    --------fin Affichage----------- //
     
@@ -124,14 +137,49 @@ public class ProjectController {
     //    --------fin Edit----------- //
     
     
+    //    --------Affichage Phases----------- //
+    @GetMapping("/{id}/pices/phase1/edit")
+    public String phase1(Model model, @PathVariable(value="id") String id) {
+        model.addAttribute("project_id", id);
+        model.addAttribute("phase1MultipartFiles", new Phase1MultipartFiles());
+        return "project_pices_phase1_edit";
+    }
+    //    --------fin Affichage Phases----------- //
+    
+    
     //    --------Edit Phases----------- //
     @PostMapping("{id}/phase1/edit")
-    public String phase1_edit(@RequestParam("files") MultipartFile[] files, @PathVariable(value="id") String id) {
-  
+    public String phase1_edit(Phase1MultipartFiles files, @PathVariable(value="id") String id) throws IOException {
+        Projet projet= projetService.findById(id);
+        Phase1 phase1= projetService.convertToPhase1(files);
+        if(projet.getPJointes() != null){
+            phase1.setId(projet.getPJointes().getPhase1().getId());
+            phase1Service.save(phase1);
+        }else{
+            PJointes pJointes= new PJointes();
+            pJointes.setPhase1(phase1);
+            projet.setPJointes(pJointes);
+            projetService.save(projet);
+        }
         return "redirect:/projets/"+id+"/fiche";
     }
     //    --------fin Edit----------- //
     
     
+    
+    
+    
+    
+    
+    //    --------Affichage Documents----------- //
+    @RequestMapping(value = "/{id}/documents/", produces = MediaType.IMAGE_JPEG_VALUE)
+    @ResponseBody
+    public byte[] getPic(@PathVariable(value="id") String id) throws IOException {
+        
+        return null;
+    }
+    
+    
+    //    --------fin Affichage Phases----------- //
     
 }
