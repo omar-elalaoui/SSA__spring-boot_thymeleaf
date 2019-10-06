@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+
+
+        <!-- start: page -->
+        <nav class="slidemenu">
+
+            <!-- Item 1 -->
+            <a th:href="@{'/projets/'+${project_id}+'/fiche'}">
+                <i id="slide-item-1" class="slide-toggle"></i>
+                <label for="slide-item-1">
+                    <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
+                </label>
+            </a>
+
+            <!-- Item 2 -->
+            <a th:href="@{'/projets/'+${project_id}+'/description'}">
+                <i id="slide-item-2" class="slide-toggle"></i>
+                <label for="slide-item-2">
+                    <p class="icon">★</p><span>Description Technique</span>
+                </label></a>
+
+            <!-- Item 3 -->
+            <a th:href="@{'/projets/'+${project_id}+'/suivi_chantier'}">
+                <i id="slide-item-3" class="slide-toggle activeDoc"></i>
+                <label for="slide-item-3">
+                    <p class="icon">✈</p><span>Suivi Chantier</span>
+                </label>
+            </a>
+            <!-- Item 4 -->
+            <a th:href="@{'/projets/'+${project_id}+'/pices'}">
+                <i id="slide-item-4" class="slide-toggle "></i>
+                <label for="slide-item-4">
+                    <p class="icon">✎</p><span>Peices Jointes</span>
+                </label>
+            </a>
+
+            <div class="clear"></div>
+            <!-- Bar -->
+            <div class="slider">
+                <div class="bar suiviBar"></div>
+            </div>
+
+        </nav>
+        <br>
+        <!-- start: page -->
+
+        <!-- start: page -->
+        <div class="col-md-10">
+            <form id="form1" class="form-horizontal"
+                  th:action="@{/projets/suivi_chantier/edit}" th:object="${suivi_chantier}" method="post">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">Modification du Projet</h2>
+                    </header>
+                    <div class="panel-body suivi_proj_edit ">
+
+                        <input  type="hidden" th:field="*{id}" class="form-control">
+
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Reference : </label>
+                            <div class="col-sm-8">
+                                <input type="text" th:value="${project_id}" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Date d'ouverture du chantier : </label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{date_ouv_chantier}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Date d'implentation : </label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{date_impl}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Nom agent : </label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{nom_agent}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Date de fermeture : </label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{date_ferm_chantier}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Observations : </label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{observations}" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="panel-footer">
+                        <a th:href="@{'/projets/'+${project_id}+'suivi_chantier'}" class="btn btn-default"><i class="fa fa-times"></i> Annuler</a>
+                        <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Sauvegarder </button>
+                    </footer>
+                </section>
+            </form>
+        </div>
+
+
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>
