@@ -1,7 +1,6 @@
 package com.ssa.service.impl;
 
 import com.ssa.dao.ProjetRepository;
-import com.ssa.entity.Projet;
 import com.ssa.service.ProjetService;
 import org.springframework.beans.factory.annotation.Autowired;
 

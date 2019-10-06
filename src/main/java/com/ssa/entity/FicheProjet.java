@@ -22,8 +22,9 @@ public class FicheProjet {
         private String prenom;
         private String cin;
         private String contact;
+        private String situation;
         private String nature_projet ;
-        private Date date_entrée;
+        private Date date_entree;
         private Date date_sortie;
         private String dessinateur;
         private String observations;

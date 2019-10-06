@@ -1,7 +1,5 @@
 package com.ssa.service;
 
-import com.ssa.entity.Projet;
-
 import java.util.List;
 
 public interface ProjetService {
