@@ -1,9 +1,6 @@
 package com.ssa.controller;
 
-import com.ssa.entity.DescProjet;
-import com.ssa.entity.FicheProjet;
-import com.ssa.entity.Projet;
-import com.ssa.entity.SuiviChantier;
+import com.ssa.entity.*;
 import com.ssa.service.SsaUtil;
 import com.ssa.service.impl.DescProjetServiceImpl;
 import com.ssa.service.impl.FicheProjetServiceImpl;
@@ -12,10 +9,8 @@ import com.ssa.service.impl.SuiviChantierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/projets")
@@ -117,15 +112,26 @@ public class ProjectController {
         return "redirect:/projets/"+ficheProjet.getRef()+"/fiche";
     }
     @PostMapping("/description/edit")
-    public String project_description_edit(DescProjet descProjet) {
+    public String project_description_edit(DescProjet descProjet, String projet_ref) {
         descProjetService.save(descProjet);
-        return "redirect:/projets";
+        return "redirect:/projets/"+projet_ref+"/description";
     }
     @PostMapping("/suivi_chantier/edit")
-    public String project_suivi_chantier_edit(SuiviChantier suiviChantier) {
+    public String project_suivi_chantier_edit(SuiviChantier suiviChantier, String projet_ref) {
         suiviChantierService.save(suiviChantier);
-        return "redirect:/projets";
+        return "redirect:/projets/"+projet_ref+"/suivi_chantier";
     }
     //    --------fin Edit----------- //
+    
+    
+    //    --------Edit Phases----------- //
+    @PostMapping("{id}/phase1/edit")
+    public String phase1_edit(@RequestParam("files") MultipartFile[] files, @PathVariable(value="id") String id) {
+  
+        return "redirect:/projets/"+id+"/fiche";
+    }
+    //    --------fin Edit----------- //
+    
+    
     
 }
