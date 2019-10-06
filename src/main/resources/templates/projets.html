@@ -17,7 +17,7 @@
         <!-- start: page -->
         <div class="row">
             <div class="col-sm-2">
-                <a th:href="@{/projects/add}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+                <a th:href="@{/projets/add}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
             </div>
             <div class="col-sm-4">
                 <div class="input-group mb-md">
@@ -31,8 +31,10 @@
         <br>
 
         <div class="row">
-            <div class="col-md-3 col-xl-3">
-                <a href="ch_fiche_projet.html">
+
+
+            <div class="col-md-3 col-xl-3" th:each="projet: ${projets}">
+                <a th:href="@{'/projets/'+${projet.ref}+'/fiche'}">
                     <section class="panel ch_project_list_item">
                         <header class="panel-heading bg-white">
                             <div class="panel-heading-icon bg-primary mt-sm">
@@ -40,64 +42,14 @@
                             </div>
                         </header>
                         <div class="panel-body">
-                            <h3 class="text-semibold mt-none text-center">Omar El Alaoui</h3>
-                            <p class="text-center">aEe234e5Es8</p>
+                            <h3 class="text-semibold mt-none text-center" th:text="${projet.ficheProjet.nom}"></h3>
+                            <p class="text-center" th:text="${projet.ref}"></p>
                         </div>
                     </section>
                 </a>
             </div>
-            <div class="col-md-3 col-xl-3">
-                <section class="panel ch_project_list_item">
-                    <header class="panel-heading bg-white">
-                        <div class="panel-heading-icon bg-primary mt-sm">
-                            <i class="fa fa-folder-open"></i>
-                        </div>
-                    </header>
-                    <div class="panel-body">
-                        <h3 class="text-semibold mt-none text-center">Omar El Alaoui</h3>
-                        <p class="text-center">aEe234e5Es8</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-3 col-xl-3">
-                <section class="panel ch_project_list_item">
-                    <header class="panel-heading bg-white">
-                        <div class="panel-heading-icon bg-primary mt-sm">
-                            <i class="fa fa-folder-open"></i>
-                        </div>
-                    </header>
-                    <div class="panel-body">
-                        <h3 class="text-semibold mt-none text-center">Omar El Alaoui</h3>
-                        <p class="text-center">aEe234e5Es8</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-3 col-xl-3">
-                <section class="panel ch_project_list_item">
-                    <header class="panel-heading bg-white">
-                        <div class="panel-heading-icon bg-primary mt-sm">
-                            <i class="fa fa-folder-open"></i>
-                        </div>
-                    </header>
-                    <div class="panel-body">
-                        <h3 class="text-semibold mt-none text-center">Omar El Alaoui</h3>
-                        <p class="text-center">aEe234e5Es8</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-3 col-xl-3">
-                <section class="panel ch_project_list_item">
-                    <header class="panel-heading bg-white">
-                        <div class="panel-heading-icon bg-primary mt-sm">
-                            <i class="fa fa-folder-open"></i>
-                        </div>
-                    </header>
-                    <div class="panel-body">
-                        <h3 class="text-semibold mt-none text-center">Omar El Alaoui</h3>
-                        <p class="text-center">aEe234e5Es8</p>
-                    </div>
-                </section>
-            </div>
+
+
         </div>
 
         <!-- end: page -->

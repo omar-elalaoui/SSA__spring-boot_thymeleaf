@@ -190,15 +190,15 @@
 
                                     </ul>
                                 </li>
-                                <li class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/projects') ? 'nav-expanded':''}" >
+                                <li class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/projets') ? 'nav-expanded':''}" >
                                     <a >
                                         <i class="fa fa-university" aria-hidden="true"></i>
                                         <span>Mes Projets</span>
                                     </a>
 
                                     <ul class="nav nav-children">
-                                        <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/projects') ? 'nav-active':''}">
-                                            <a th:href="@{/projects}">
+                                        <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/projets') ? 'nav-active':''}">
+                                            <a th:href="@{/projets}">
                                                 Projets
                                                 <span class="pull-right label label-primary">3</span>
 

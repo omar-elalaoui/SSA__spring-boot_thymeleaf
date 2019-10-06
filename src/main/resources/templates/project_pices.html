@@ -20,7 +20,7 @@
         <nav class="slidemenu">
 
             <!-- Item 1 -->
-            <a th:href="@{/project/fiche}">
+            <a th:href="@{'/projets/'+${project_id}+'/fiche'}">
                 <i id="slide-item-1" class="slide-toggle"></i>
                 <label for="slide-item-1">
                     <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
@@ -28,21 +28,21 @@
             </a>
 
             <!-- Item 2 -->
-            <a th:href="@{/project/description}">
+            <a th:href="@{'/projets/'+${project_id}+'/description'}">
                 <i id="slide-item-2" class="slide-toggle"></i>
                 <label for="slide-item-2">
                     <p class="icon">★</p><span>Description Technique</span>
                 </label></a>
 
             <!-- Item 3 -->
-            <a th:href="@{/project/suivi_chantier}">
+            <a th:href="@{'/projets/'+${project_id}+'/suivi_chantier'}">
                 <i id="slide-item-3" class="slide-toggle "></i>
                 <label for="slide-item-3">
                     <p class="icon">✈</p><span>Suivi Chantier</span>
                 </label>
             </a>
             <!-- Item 4 -->
-            <a th:href="@{/project/pices}">
+            <a th:href="@{'/projets/'+${project_id}+'/pices'}">
                 <i id="slide-item-4" class="slide-toggle activeDoc"></i>
                 <label for="slide-item-4">
                     <p class="icon">✎</p><span>Peices Jointes</span>

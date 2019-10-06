@@ -21,7 +21,7 @@
         <nav class="slidemenu">
 
             <!-- Item 1 -->
-            <a th:href="@{/project/fiche}">
+            <a th:href="@{'/projets/'+${project_id}+'/fiche'}">
                 <i id="slide-item-1" class="slide-toggle"></i>
                 <label for="slide-item-1">
                     <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
@@ -29,21 +29,21 @@
             </a>
 
             <!-- Item 2 -->
-            <a th:href="@{/project/description}">
+            <a th:href="@{'/projets/'+${project_id}+'/description'}">
                 <i id="slide-item-2" class="slide-toggle activeDoc"></i>
                 <label for="slide-item-2">
                     <p class="icon">★</p><span>Description Technique</span>
                 </label></a>
 
             <!-- Item 3 -->
-            <a th:href="@{/project/suivi_chantier}">
+            <a th:href="@{'/projets/'+${project_id}+'/suivi_chantier'}">
                 <i id="slide-item-3" class="slide-toggle "></i>
                 <label for="slide-item-3">
                     <p class="icon">✈</p><span>Suivi Chantier</span>
                 </label>
             </a>
             <!-- Item 4 -->
-            <a th:href="@{/project/pices}">
+            <a th:href="@{'/projets/'+${project_id}+'/pices'}">
                 <i id="slide-item-4" class="slide-toggle "></i>
                 <label for="slide-item-4">
                     <p class="icon">✎</p><span>Peices Jointes</span>
@@ -73,43 +73,43 @@
                     <tbody>
                     <tr>
                         <th>Surface du terrain</th>
-                        <td></td>
+                        <td th:text="${description.surface_terrain}" ></td>
                     </tr>
                     <tr>
                         <th>Surface au sol</th>
-                        <td></td>
+                        <td th:text="${description.surface_au_sol}"></td>
                     </tr>
                     <tr>
                         <th>Surface couverte</th>
-                        <td></td>
+                        <td th:text="${description.surface_couverte}"></td>
                     </tr>
                     <tr>
                         <th>COS</th>
-                        <td></td>
+                        <td th:text="${description.cos}"></td>
                     </tr>
                     <tr>
                         <th>CUS</th>
-                        <td></td>
+                        <td th:text="${description.cus}"></td>
                     </tr>
                     <tr>
                         <th>Prix du m²</th>
-                        <td></td>
+                        <td th:text="${description.prixm2}"></td>
                     </tr>
                     <tr>
                         <th>Estimation des travaux</th>
-                        <td></td>
+                        <td th:text="${description.estimation_travaux}"></td>
                     </tr>
                     <tr>
                         <th>Délai</th>
-                        <td></td>
+                        <td th:text="${#dates.format(description.delai, 'dd/MM/yyyy')}"></td>
                     </tr>
                     <tr>
                         <th>Travaux honoraire</th>
-                        <td></td>
+                        <td th:text="${description.trav_honoraire}"></td>
                     </tr>
                     <tr>
                         <th>Montant honoraire</th>
-                        <td></td>
+                        <td th:text="${description.mont_honoraire}"></td>
                     </tr>
                     <tr>
                         <td>

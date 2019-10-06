@@ -4,9 +4,9 @@ import com.ssa.dao.FicheProjetRepository;
 import com.ssa.entity.FicheProjet;
 import com.ssa.service.FicheProjetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Service
 public class FicheProjetServiceImpl implements FicheProjetService {
     
     @Autowired

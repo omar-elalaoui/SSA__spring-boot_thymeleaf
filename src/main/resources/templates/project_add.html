@@ -1,0 +1,277 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+
+        <!-- start: page -->
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="panel form-wizard" id="w4">
+                    <header class="panel-heading text-primary">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">Ajouter un Projet</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="wizard-progress wizard-progress-lg">
+                            <div class="steps-progress">
+                                <div class="progress-indicator"></div>
+                            </div>
+                            <ul class="wizard-steps">
+                                <li class="active">
+                                    <a href="#ficheprojet" data-toggle="tab"><span>1</span>Fiche de projet</a>
+                                </li>
+                                <li>
+                                    <a href="#desctech" data-toggle="tab"><span>2</span>Desc. Technique</a>
+                                </li>
+                                <li>
+                                    <a href="#suivichant" data-toggle="tab"><span>3</span>Suivi chantier</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+                        <form class="form-horizontal" novalidate="novalidate"
+                              th:action="@{/projets/add}" th:object="${projet}" method="post">
+                            <div class="row">
+                                <div class="col-md-10">
+
+                                    <div class="tab-content">
+                                        <div id="ficheprojet" class="tab-pane active">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Nom</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.nom}"required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Prenom</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.prenom}"required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">CIN</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.cin}"required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Contact</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.contact}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Situation</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.situation}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Nature du projet</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.nature_projet}"required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Date entrée</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" th:field="*{ficheProjet.date_entree}"required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Date Sortie</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" th:field="*{ficheProjet.date_sortie}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dessinateur</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.dessinateur}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Observations</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.observations}">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div id="desctech" class="tab-pane">
+
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Surface Terrain</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_terrain}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Surface au sol</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_au_sol}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Surface couverte</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_couverte}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">COS</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.cos}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">CUS</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.cus}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Prix du m²</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.prixm2}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Estimation travaux</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.estimation_travaux}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Delai</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" th:field="*{descProjet.delai}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Travaux Honoraire</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.trav_honoraire}"required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Montant honoraire</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{descProjet.mont_honoraire}"required>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div id="suivichant" class="tab-pane">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" >Date d'ouverture chantier</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" th:field="*{suiviChantier.date_ouv_chantier}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" >Date d'implentation</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" th:field="*{suiviChantier.date_impl}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" >Nom de l'agent</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{suiviChantier.nom_agent}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" >Date fermeture</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" th:field="*{suiviChantier.date_ferm_chantier}" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" >Observations et commentaires</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{suiviChantier.observations}" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-8" ></label>
+                                                <div class="col-sm-4">
+                                                    <button class="btn btn-success" type="submit">Save</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="panel-footer">
+                                <ul class="pager">
+                                    <li class="previous disabled">
+                                        <a><i class="fa fa-angle-left"></i> Previous</a>
+                                    </li>
+                                    <li class="finish hidden pull-right">
+
+                                        <button class="btn btn-success" >Finish</button>
+
+                                    </li>
+                                    <li class="next">
+                                        <a>Next <i class="fa fa-angle-right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+                </section>
+            </div>
+
+        </div>
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

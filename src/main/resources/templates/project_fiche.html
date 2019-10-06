@@ -20,7 +20,7 @@
         <nav class="slidemenu">
 
             <!-- Item 1 -->
-            <a th:href="@{/project/fiche}">
+            <a th:href="@{'/projets/'+${fiche.ref}+'/fiche'}">
                 <i id="slide-item-1" class="slide-toggle activeDoc"></i>
                 <label for="slide-item-1">
                     <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
@@ -28,21 +28,21 @@
             </a>
 
             <!-- Item 2 -->
-            <a th:href="@{/project/description}">
+            <a th:href="@{'/projets/'+${fiche.ref}+'/description'}">
                 <i id="slide-item-2" class="slide-toggle"></i>
                 <label for="slide-item-2">
                     <p class="icon">★</p><span>Description Technique</span>
                 </label></a>
 
             <!-- Item 3 -->
-            <a th:href="@{/project/suivi_chantier}">
+            <a th:href="@{'/projets/'+${fiche.ref}+'/suivi_chantier'}">
                 <i id="slide-item-3" class="slide-toggle "></i>
                 <label for="slide-item-3">
                     <p class="icon">✈</p><span>Suivi Chantier</span>
                 </label>
             </a>
             <!-- Item 4 -->
-            <a th:href="@{/project/pices}">
+            <a th:href="@{'/projets/'+${fiche.ref}+'/pices'}">
                 <i id="slide-item-4" class="slide-toggle "></i>
                 <label for="slide-item-4">
                     <p class="icon">✎</p><span>Peices Jointes</span>
@@ -72,47 +72,47 @@
                     <tbody>
                     <tr>
                         <th>Reference</th>
-                        <td>es6f7Z34</td>
+                        <td th:text="${fiche.ref}" ></td>
                     </tr>
                     <tr>
                         <th>Nom</th>
-                        <td>Mohamed</td>
+                        <td th:text="${fiche.nom}"></td>
                     </tr>
                     <tr>
                         <th>Prenom</th>
-                        <td>Ali</td>
+                        <td th:text="${fiche.prenom}"></td>
                     </tr>
                     <tr>
                         <th>CIN</th>
-                        <td></td>
+                        <td th:text="${fiche.cin}"></td>
                     </tr>
                     <tr>
                         <th>Contacte</th>
-                        <td></td>
+                        <td th:text="${fiche.contact}"></td>
                     </tr>
                     <tr>
                         <th>Situation</th>
-                        <td></td>
+                        <td th:text="${fiche.situation}"></td>
                     </tr>
                     <tr>
                         <th>Nature du Projet</th>
-                        <td></td>
+                        <td th:text="${fiche.nature_projet}"></td>
                     </tr>
                     <tr>
                         <th>Date entrée</th>
-                        <td></td>
+                        <td th:text="${#dates.format(fiche.date_entree, 'dd/MM/yyyy')}" ></td>
                     </tr>
                     <tr>
                         <th>Date sortie</th>
-                        <td></td>
+                        <td th:text="${#dates.format(fiche.date_sortie, 'dd/MM/yyyy')}"></td>
                     </tr>
                     <tr>
                         <th>Dessiné par</th>
-                        <td></td>
+                        <td th:text="${fiche.dessinateur}"></td>
                     </tr>
                     <tr>
                         <th>Observations</th>
-                        <td></td>
+                        <td th:text="${fiche.observations}"></td>
                     </tr>
                     </tbody>
                 </table>

@@ -21,7 +21,6 @@ public class User {
     private String nom;
     private boolean active;
     @ManyToMany
-
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name="username"),
