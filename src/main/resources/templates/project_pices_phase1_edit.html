@@ -64,211 +64,222 @@
             <div class="tabs tabs-primary">
                 <ul class="nav nav-tabs ">
                     <li class="active">
-                        <a href="#p1" data-toggle="tab">Phase <b>1</b></a>
+                        <a href="#p1" data-toggle="tab" >Phase <b>1</b></a>
                     </li>
-                    <li class="">
-                        <a href="#p2" data-toggle="tab">Phase <b>2</b></a>
+                    <li >
+                        <a th:if="${!phase1_empty}" th:href="@{'/projets/'+${project_id}+'/pices/phase2'}" >Phase <b>2</b></a>
+                        <a th:if="${phase1_empty}" class="phase_disable">Phase <b>2</b></a>
                     </li>
-                    <li class="">
-                        <a href="#p3" data-toggle="tab">Phase <b>3</b></a>
+                    <li>
+                        <a th:if="${!phase1_empty}" th:href="@{'/projets/'+${project_id}+'/pices/phase3'}">Phase <b>3</b></a>
+                        <a th:if="${phase1_empty}" class="phase_disable">Phase <b>3</b></a>
                     </li>
-                    <li class="">
-                        <a href="#p4" data-toggle="tab">Phase <b>4</b></a>
+                    <li>
+                        <a th:if="${!phase1_empty}" th:href="@{'/projets/'+${project_id}+'/pices/phase4'}">Phase <b>4</b></a>
+                        <a th:if="${phase1_empty}" class="phase_disable">Phase <b>4</b></a>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div id="p1" class="tab-pane active">
-                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</button>
-                        <br>
-                        <br>
-                        <br>
-
                         <form novalidate="novalidate" enctype="multipart/form-data"
                               th:action="@{'/projets/'+${project_id}+'/phase1/edit'}" th:object="${phase1MultipartFiles}" method="post">
                             <table class="table">
                                 <tbody>
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>CIN ou passeport</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info1"></span>
-                                        <label class="btn btn-primary" for="my-file-selector1">
-                                            <input th:field="${phase1MultipartFiles.cin_passeport}" id="my-file-selector1" type="file" style="display:none" onchange="$('#upload-file-info1').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.cin_passeport != null}" th:href="@{'/projets/'+${project_id}+'/documents/cin_passeport'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/cin_passeport'}" width="40px" height="50px">
+                                            </a>
+                                            <a th:if="${phase1.cin_passeport == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>CIN ou passeport</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info1" th:text="${phase1.cin_passeport != null ? phase1.cin_passeport.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector1">
+                                                <input th:field="${phase1MultipartFiles.cin_passeport}" id="my-file-selector1" type="file" style="display:none" onchange="$('#upload-file-info1').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
 
-                                    </td>
+                                        </td>
 
-                                </tr>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.contrat_arch != null}" th:href="@{'/projets/'+${project_id}+'/documents/contrat_arch'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/contrat_arch'}" width="40px" height="50px">
+                                            </a>
 
+                                            <a th:if="${phase1.contrat_arch == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Contrat d'architecture</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info3" th:text="${phase1.contrat_arch != null ? phase1.contrat_arch.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector3">
+                                                <input th:field="${phase1MultipartFiles.contrat_arch}" id="my-file-selector3" type="file" style="display:none" onchange="$('#upload-file-info3').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
 
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Contrat d'architecture</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info3"></span>
-                                        <label class="btn btn-primary" for="my-file-selector3">
-                                            <input th:field="${phase1MultipartFiles.contrat_arch}" id="my-file-selector3" type="file" style="display:none" onchange="$('#upload-file-info3').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
+                                        </td>
 
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.demande != null}" th:href="@{'/projets/'+${project_id}+'/documents/demande'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/demande'}" width="40px" height="50px">
+                                            </a>
 
-                                </tr>
+                                            <a th:if="${phase1.demande == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Demande</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info4" th:text="${phase1.demande != null ? phase1.demande.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector4">
+                                                <input th:field="${phase1MultipartFiles.demande}" id="my-file-selector4" type="file" style="display:none" onchange="$('#upload-file-info4').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
 
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Demande</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info4"></span>
-                                        <label class="btn btn-primary" for="my-file-selector4">
-                                            <input th:field="${phase1MultipartFiles.demande}" id="my-file-selector4" type="file" style="display:none" onchange="$('#upload-file-info4').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
+                                        </td>
 
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.declaration != null}" th:href="@{'/projets/'+${project_id}+'/documents/declaration'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/declaration'}" width="40px" height="50px">
+                                            </a>
 
-                                </tr>
+                                            <a th:if="${phase1.declaration == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Declaration</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info5" th:text="${phase1.declaration != null ? phase1.declaration.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector5">
+                                                <input th:field="${phase1MultipartFiles.declaration}" id="my-file-selector5" type="file" style="display:none" onchange="$('#upload-file-info5').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.certificat_prop != null}" th:href="@{'/projets/'+${project_id}+'/documents/certificat_prop'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/certificat_prop'}" width="40px" height="50px">
+                                            </a>
 
+                                            <a th:if="${phase1.certificat_prop == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Certificat propriété</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info6" th:text="${phase1.certificat_prop != null ? phase1.certificat_prop.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector6">
+                                                <input th:field="${phase1MultipartFiles.certificat_prop}" id="my-file-selector6" type="file" style="display:none" onchange="$('#upload-file-info6').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.plan != null}" th:href="@{'/projets/'+${project_id}+'/documents/plan'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/plan'}" width="40px" height="50px">
+                                            </a>
 
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Declaration</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info5"></span>
-                                        <label class="btn btn-primary" for="my-file-selector5">
-                                            <input th:field="${phase1MultipartFiles.declaration}" id="my-file-selector5" type="file" style="display:none" onchange="$('#upload-file-info5').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
-                                    </td>
-                                </tr>
+                                            <a th:if="${phase1.plan == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Plan</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info7" th:text="${phase1.plan != null ? phase1.plan.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector7">
+                                                <input th:field="${phase1MultipartFiles.plan}" id="my-file-selector7" type="file" style="display:none" onchange="$('#upload-file-info7').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.liste_coord != null}" th:href="@{'/projets/'+${project_id}+'/documents/liste_coord'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/liste_coord'}" width="40px" height="50px">
+                                            </a>
 
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Certificat propriété</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info6"></span>
-                                        <label class="btn btn-primary" for="my-file-selector6">
-                                            <input th:field="${phase1MultipartFiles.certificat_prop}" id="my-file-selector6" type="file" style="display:none" onchange="$('#upload-file-info6').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
-                                    </td>
-                                </tr>
+                                            <a th:if="${phase1.liste_coord == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Liste coordnées</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info8" th:text="${phase1.liste_coord != null ? phase1.liste_coord.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector8">
+                                                <input th:field="${phase1MultipartFiles.liste_coord}" id="my-file-selector8" type="file" style="display:none" onchange="$('#upload-file-info8').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
 
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Plan</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info7"></span>
-                                        <label class="btn btn-primary" for="my-file-selector7">
-                                            <input th:field="${phase1MultipartFiles.plan}" id="my-file-selector7" type="file" style="display:none" onchange="$('#upload-file-info7').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.plan_cote != null}" th:href="@{'/projets/'+${project_id}+'/documents/plan_cote'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/plan_cote'}" width="40px" height="50px">
+                                            </a>
 
-                                    </td>
-                                </tr>
+                                            <a th:if="${phase1.plan_cote == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>plan côté</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info9" th:text="${phase1.plan_cote != null ? phase1.plan_cote.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector9">
+                                                <input th:field="${phase1MultipartFiles.plan_cote}" id="my-file-selector9" type="file" style="display:none" onchange="$('#upload-file-info9').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%">
+                                            <a th:if="${phase1.note_reinseignement != null}" th:href="@{'/projets/'+${project_id}+'/documents/note_reinseignement'}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/note_reinseignement'}" width="40px" height="50px">
+                                            </a>
 
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Liste coordnées</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info8"></span>
-                                        <label class="btn btn-primary" for="my-file-selector8">
-                                            <input th:field="${phase1MultipartFiles.liste_coord}" id="my-file-selector8" type="file" style="display:none" onchange="$('#upload-file-info8').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
-
-                                    </td>
-                                </tr>
-
-
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>plan côté</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info9"></span>
-                                        <label class="btn btn-primary" for="my-file-selector9">
-                                            <input th:field="${phase1MultipartFiles.plan_cote}" id="my-file-selector9" type="file" style="display:none" onchange="$('#upload-file-info9').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="40%">
-                                        <a class="image-popup-no-margins" th:href="@{/images/projects/project-2.jpg}">
-                                            <img class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
-                                        </a>
-                                    </td>
-                                    <td>Note de reinseignement</td>
-                                    <td>
-                                        <span class='label label-info' id="upload-file-info10"></span>
-                                        <label class="btn btn-primary" for="my-file-selector10">
-                                            <input th:field="${phase1MultipartFiles.note_reinseignement}" id="my-file-selector10" type="file" style="display:none" onchange="$('#upload-file-info10').html(this.files[0].name)">
-                                            <i class="fa fa-upload"></i> Upload...
-                                        </label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <br>
-                                        <a th:href="@{'/projets/'+${project_id}+'/pices'}" class="btn btn-default"><i class="fa fa-times"></i> Annuler</a>
-                                        <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Sauvegarder </button>
-                                    </td>
-                                </tr>
+                                            <a th:if="${phase1.note_reinseignement == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                                <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                            </a>
+                                        </td>
+                                        <td>Note de reinseignement</td>
+                                        <td>
+                                            <span class='label label-info' id="upload-file-info10" th:text="${phase1.note_reinseignement != null ? phase1.note_reinseignement.nomDoc:''}"></span>
+                                            <label class="btn btn-primary" for="my-file-selector10">
+                                                <input th:field="${phase1MultipartFiles.note_reinseignement}" id="my-file-selector10" type="file" style="display:none" onchange="$('#upload-file-info10').html(this.files[0].name)">
+                                                <i class="fa fa-upload"></i> Upload...
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <br>
+                                            <a th:href="@{'/projets/'+${project_id}+'/pices'}" class="btn btn-default"><i class="fa fa-times"></i> Annuler</a>
+                                            <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Sauvegarder </button>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </form>
 
                     </div>
-                    <div id="p2" class="tab-pane">
-                        <p>Phase 2</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
-                    </div>
-                    <div id="p3" class="tab-pane">
-                        <p>Phase 3</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
-                    </div>
-                    <div id="p4" class="tab-pane">
-                        <p>Phase 4</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
-                    </div>
+                    <div id="p2" class="tab-pane"></div>
+                    <div id="p3" class="tab-pane"></div>
+                    <div id="p4" class="tab-pane"></div>
                 </div>
             </div>
         </div>

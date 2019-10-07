@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+
+
+        <!-- start: page -->
+        <nav class="slidemenu">
+
+            <!-- Item 1 -->
+            <a th:href="@{'/projets/'+${project_id}+'/fiche'}">
+                <i id="slide-item-1" class="slide-toggle"></i>
+                <label for="slide-item-1">
+                    <p class="icon"><i class="fa fa-file"></i></p><span>Fiche Projet</span>
+                </label>
+            </a>
+
+            <!-- Item 2 -->
+            <a th:href="@{'/projets/'+${project_id}+'/description'}">
+                <i id="slide-item-2" class="slide-toggle"></i>
+                <label for="slide-item-2">
+                    <p class="icon"><i class="fa fa-cubes"></i></p><span>Description Technique</span>
+                </label></a>
+
+            <!-- Item 3 -->
+            <a th:href="@{'/projets/'+${project_id}+'/suivi_chantier'}">
+                <i id="slide-item-3" class="slide-toggle "></i>
+                <label for="slide-item-3">
+                    <p class="icon"><i class="fa fa-building"></i></p><span>Suivi Chantier</span>
+                </label>
+            </a>
+            <!-- Item 4 -->
+            <a th:href="@{'/projets/'+${project_id}+'/pices'}">
+                <i id="slide-item-4" class="slide-toggle activeDoc"></i>
+                <label for="slide-item-4">
+                    <p class="icon"><i class="fa fa-file-picture-o"></i></p><span>Peices Jointes</span>
+                </label>
+            </a>
+
+            <div class="clear"></div>
+            <!-- Bar -->
+            <div class="slider">
+                <div class="bar peicesBar"></div>
+            </div>
+
+        </nav>
+        <br>
+        <!-- start: page -->
+
+        <div class="row">
+            <div class="tabs tabs-primary">
+                <ul class="nav nav-tabs ">
+                    <li>
+                        <a th:href="@{'/projets/'+${project_id}+'/pices/phase1'}">Phase <b>1</b></a>
+                    </li>
+                    <li >
+                        <a th:href="@{'/projets/'+${project_id}+'/pices/phase2'}" >Phase <b>2</b></a>
+                    </li>
+                    <li class="active">
+                        <a href="#p3" data-toggle="tab">Phase <b>3</b></a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{'/projets/'+${project_id}+'/pices/phase4'}">Phase <b>4</b></a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="p1" class="tab-pane"></div>
+                    <div id="p2" class="tab-pane "></div>
+                    <div id="p3" class="tab-pane active">
+                        <a th:href="@{'/projets/'+${project_id}+'/pices/phase3/edit'}" class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</a>
+                        <br>
+                        <br>
+                        <br>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.autorization != null}" th:href="@{'/projets/'+${project_id}+'/documents/autorization'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/autorization'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.autorization == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>Autorisation</td>
+
+                                </tr>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.pv_commition != null}" th:href="@{'/projets/'+${project_id}+'/documents/pv_commition'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/pv_commition'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.pv_commition == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>PV commission</td>
+
+                                </tr>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.plan_approuve != null}" th:href="@{'/projets/'+${project_id}+'/documents/plan_approuve'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/plan_approuve'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.plan_approuve == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>Plan approuvé</td>
+
+                                </tr>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.attestation_impl != null}" th:href="@{'/projets/'+${project_id}+'/documents/attestation_impl'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/attestation_impl'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.attestation_impl == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>Attestation d'implantation</td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.plan_beton_arme != null}" th:href="@{'/projets/'+${project_id}+'/documents/plan_beton_arme'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/plan_beton_arme'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.plan_beton_arme == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>Plan béton armé</td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.pv_suivi != null}" th:href="@{'/projets/'+${project_id}+'/documents/pv_suivi'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/pv_suivi'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.pv_suivi == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>PV de suivi</td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">
+                                        <a th:if="${phase3.photo_exec != null}" th:href="@{'/projets/'+${project_id}+'/documents/photo_exec'}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{'/projets/'+${project_id}+'/documents/photo_exec'}" width="40px" height="50px">
+                                        </a>
+
+                                        <a th:if="${phase3.photo_exec == null}" th:href="@{/images/vide_img.png}" class="image-popup-no-margins" >
+                                            <img  class="img-responsive" th:src="@{/images/vide_img.png}" width="40px" height="50px">
+                                        </a>
+                                    </td>
+                                    <td>Photo d'execution</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="p4" class="tab-pane"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>
