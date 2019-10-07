@@ -66,16 +66,16 @@
                         <a href="#p1" data-toggle="tab" >Phase <b>1</b></a>
                     </li>
                     <li >
-                        <a th:if="${!phase1_empty}" th:href="@{'/projets/'+${project_id}+'/pices/phase2'}" >Phase <b>2</b></a>
-                        <a th:if="${phase1_empty}" class="phase_disable">Phase <b>2</b></a>
+                        <a th:if="${phase1_full}" th:href="@{'/projets/'+${project_id}+'/pices/phase2'}" >Phase <b>2</b></a>
+                        <a th:if="${!phase1_full}" class="phase_disable">Phase <b>2</b></a>
                     </li>
                     <li>
-                        <a th:if="${!phase1_empty}" th:href="@{'/projets/'+${project_id}+'/pices/phase3'}">Phase <b>3</b></a>
-                        <a th:if="${phase1_empty}" class="phase_disable">Phase <b>3</b></a>
+                        <a th:if="${phase1_full}" th:href="@{'/projets/'+${project_id}+'/pices/phase3'}">Phase <b>3</b></a>
+                        <a th:if="${!phase1_full}" class="phase_disable">Phase <b>3</b></a>
                     </li>
                     <li>
-                        <a th:if="${!phase1_empty}" th:href="@{'/projets/'+${project_id}+'/pices/phase4'}">Phase <b>4</b></a>
-                        <a th:if="${phase1_empty}" class="phase_disable">Phase <b>4</b></a>
+                        <a th:if="${phase1_full}" th:href="@{'/projets/'+${project_id}+'/pices/phase4'}">Phase <b>4</b></a>
+                        <a th:if="${!phase1_full}" class="phase_disable">Phase <b>4</b></a>
                     </li>
                 </ul>
                 <div class="tab-content">

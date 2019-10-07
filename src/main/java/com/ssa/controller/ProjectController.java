@@ -149,11 +149,12 @@ public class ProjectController {
         Projet projet= projetService.findById(id);
         model.addAttribute("project_id", projet.getRef());
         if(projet.getPJointes() != null){
-            model.addAttribute("phase1", projet.getPJointes().getPhase1());
-            model.addAttribute("phase1_empty", false);
+            Phase1 phase1Temp= projet.getPJointes().getPhase1();
+            model.addAttribute("phase1", phase1Temp);
+            model.addAttribute("phase1_full", SsaUtil.isPhase1Full(phase1Temp));
         }else{
             model.addAttribute("phase1", new Phase1());
-            model.addAttribute("phase1_empty", true);
+            model.addAttribute("phase1_full", false);
         }
         return "project_pices_phase1";
     }
@@ -162,9 +163,14 @@ public class ProjectController {
     public String phase214(Model model, @PathVariable(value="id") String id) {
         Projet projet= projetService.findById(id);
         Phase2 phase2=new Phase2();
+        boolean phase2_full=false;
         if(projet.getPJointes() != null){
-            if(projet.getPJointes().getPhase2() != null){ phase2= projet.getPJointes().getPhase2(); }
+            if(projet.getPJointes().getPhase2() != null){
+                phase2= projet.getPJointes().getPhase2();
+                phase2_full= SsaUtil.isPhase2Full(phase2);
+            }
         }
+        model.addAttribute("phase2_full", phase2_full);
         model.addAttribute("phase2", phase2);
         model.addAttribute("project_id", projetService.findById(id).getRef());
         return "project_pices_phase2";
@@ -174,9 +180,14 @@ public class ProjectController {
     public String phase214a(Model model, @PathVariable(value="id") String id) {
         Projet projet= projetService.findById(id);
         Phase3 phase3=new Phase3();
+        boolean phase3_full=false;
         if(projet.getPJointes() != null){
-            if(projet.getPJointes().getPhase3() != null){ phase3= projet.getPJointes().getPhase3(); }
+            if(projet.getPJointes().getPhase3() != null){
+                phase3= projet.getPJointes().getPhase3();
+                phase3_full=SsaUtil.isPhase3Full(phase3);
+            }
         }
+        model.addAttribute("phase3_full", phase3_full);
         model.addAttribute("phase3", phase3);
         model.addAttribute("project_id", projetService.findById(id).getRef());
         return "project_pices_phase3";
@@ -186,9 +197,15 @@ public class ProjectController {
     public String phase214z(Model model, @PathVariable(value="id") String id) {
         Projet projet= projetService.findById(id);
         Phase4 phase4=new Phase4();
+        Phase3 phase3=new Phase3();
+        boolean phase4_full=false;
         if(projet.getPJointes() != null){
-            if(projet.getPJointes().getPhase4() != null){ phase4= projet.getPJointes().getPhase4(); }
+            if(projet.getPJointes().getPhase4() != null){
+                phase4= projet.getPJointes().getPhase4();
+                phase4_full= SsaUtil.isPhase4Full(phase4);
+            }
         }
+        model.addAttribute("phase4_full", phase4_full);
         model.addAttribute("phase4", phase4);
         model.addAttribute("project_id", projetService.findById(id).getRef());
         return "project_pices_phase4";
