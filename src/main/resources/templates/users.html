@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        i{
+            font-size: 17px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Dashboard</h2>
+        </header>
+        <!-- start: page -->
+
+        <div class="">
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                        <a href="#" class="fa fa-times"></a>
+                    </div>
+
+                    <h2 class="panel-title">Utilisateurs</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <a th:href="@{/users/add}" class="btn btn-info"><i class="fa fa-plus"></i> Ajouter</a>
+                        <br>
+                        <br>
+                        <table class="table table-bordered mb-none">
+                            <thead>
+                            <tr>
+                                <th>Prenom</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user: ${users}">
+                                <td th:text="${user.profile.prenom}"></td>
+                                <td th:text="${user.profile.nom}"></td>
+                                <td th:text="${user.profile.email}"></td>
+                                <td class="text-center" >
+                                    <a th:href="@{'/users/'+${user.username}+'/edit'}"><i class="fa fa-edit text-primary"></i></a> &ensp;&ensp;|&ensp;&ensp;
+                                    <a href=""><i class="fa fa-trash-o text-danger"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

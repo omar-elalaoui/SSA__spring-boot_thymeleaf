@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        i{
+            font-size: 17px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Dashboard</h2>
+        </header>
+        <!-- start: page -->
+
+        <div class="row">
+            <div class="col-md-4 ">
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="thumb-info mb-md">
+                            <img th:src="@{/images/logged-user.jpg}" class="rounded img-responsive" alt="John Doe">
+                            <div class="thumb-info-title">
+                                <span class="thumb-info-inner" th:text="${user.profile.prenom}+' '+${user.profile.nom}" ></span>
+                                <span class="thumb-info-type">Admin</span>
+                            </div>
+                        </div>
+
+                        <hr class="dotted short">
+
+                        <h6 class="text-muted">About</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis vulputate quam. Interdum et malesuada</p>
+
+                        <hr class="dotted short">
+
+                        <div class="social-icons-list">
+                            <a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                            <a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+                            <a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+                            <a style="background: gray;" class="pull-right edit-profile" href="#"><i class="fa fa-edit"></i><span>edit</span></a>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-8">
+
+                <div class="tabs">
+                    <ul class="nav nav-tabs tabs-primary">
+                        <li class="active">
+                            <a href="#overview" data-toggle="tab">Overview</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/users/profile_param}">Parametrage</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="overview" class="tab-pane active">
+                            <h4 class="mb-md">Update Status</h4>
+
+                            <section class="simple-compose-box mb-xlg">
+                                <form >
+                                    <textarea name="message-text" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1"></textarea>
+                                </form>
+                                <div class="compose-box-footer">
+                                    <ul class="compose-toolbar">
+                                    </ul>
+                                    <ul class="compose-btn">
+                                        <li>
+                                            <a class="btn btn-primary btn-xs">Post</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <h4 class="mb-xlg">Timeline</h4>
+
+                            <div class="timeline timeline-simple mt-xlg mb-md">
+                                <div class="tm-body">
+                                    <div class="tm-title">
+                                        <h3 class="h5 text-uppercase">November 2013</h3>
+                                    </div>
+                                    <ol class="tm-items">
+                                        <li>
+                                            <div class="tm-box">
+                                                <p class="text-muted mb-none">7 months ago.</p>
+                                                <p>
+                                                    It's awesome when we find a good solution for our projects, Porto Admin is <span class="text-primary">#awesome</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tm-box">
+                                                <p class="text-muted mb-none">7 months ago.</p>
+                                                <p>
+                                                    What is your biggest developer pain point?
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tm-box">
+                                                <p class="text-muted mb-none">7 months ago.</p>
+                                                <p>
+                                                    Checkout! How cool is that!
+                                                </p>
+                                                <div class="thumbnail-gallery">
+                                                    <a class="img-thumbnail lightbox" href="assets/images/projects/project-4.jpg" data-plugin-options='{ "type":"image" }'>
+                                                        <img class="img-responsive" width="215" height="215" src="assets/images/projects/project-4.jpg">
+                                                        <span class="zoom">
+                                                                    <i class="fa fa-search"></i>
+                                                                </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        i{
+            font-size: 17px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Dashboard</h2>
+        </header>
+        <!-- start: page -->
+
+        <div class="row">
+            <div class="col-md-4 ">
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="thumb-info mb-md">
+                            <img th:src="@{/images/logged-user.jpg}" class="rounded img-responsive" alt="John Doe">
+                            <div class="thumb-info-title">
+                                <span class="thumb-info-inner" th:text="${user.profile.prenom}+' '+${user.profile.nom}" ></span>
+                                <span class="thumb-info-type">Admin</span>
+                            </div>
+                        </div>
+
+                        <hr class="dotted short">
+
+                        <h6 class="text-muted">About</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis vulputate quam. Interdum et malesuada</p>
+
+                        <hr class="dotted short">
+
+                        <div class="social-icons-list">
+                            <a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                            <a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+                            <a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+                            <a style="background: gray;" class="pull-right edit-profile" href="#"><i class="fa fa-edit"></i><span>edit</span></a>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-8">
+
+                <div class="tabs">
+                    <ul class="nav nav-tabs tabs-primary">
+                        <li >
+                            <a th:href="@{/users/profile_ov}">Overview</a>
+                        </li>
+                        <li class="active">
+                            <a href="#edit" data-toggle="tab">Parametrage</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="edit" class="tab-pane active">
+                            <fieldset>
+                                <div class="form-group">
+                                    <br>
+                                    <div class="code_afiche" th:hidden="${user.codePrev == null}">
+                                        <label class="col-md-4 control-label">
+                                            Code d'accès privilégié</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" readonly th:value="${user.codePrev}">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a style="border-radius: 100%; width: 34px; padding-left: 10px; font-size: 15px;" class="btn btn-info btn_edit"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="code_edit" th:hidden="${!(user.codePrev == null)}">
+                                        <form th:action="@{/users/profile/edit_admin_code}" method="post">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-5">
+                                                <input type="hidden" class="form-control" th:name="admin_username" th:value="${user.username}">
+                                                <input type="text" class="form-control" th:name="code_prev" th:value="${user.codePrev}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Sauvegarder
+                                                </button>
+                                                <a class="btn btn_annuler"><i class="fa fa-times"></i> Annuler
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <hr class="dotted tall">
+                            <h4 class="mb-xlg"><b>Changer mon mot de passe</b></h4>
+                            <form th:action="@{/users/profile/edit_admin_pwd}" method="post">
+                                <fieldset class="mb-xl">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-6">
+                                        <div class="alert alert-danger" th:if="${error_pwd != null}">
+                                            <strong>error!</strong> passeword not match
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Nouveau mot de passe</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="nv_pwd">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Répéter le nouveau mot de passe</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="nv_pwd_2">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-md-9 col-md-offset-3">
+                                            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> &ensp;Sauvegarder</button>
+                                            <button type="reset" class="btn btn-default">Annuler</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Accueil</h2>
+        </header>
+        <!-- start: page -->
+
+        <div class="col-md-10">
+            <form id="form1" class="form-horizontal" th:action="@{/users/add}" th:object="${user}" method="post">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">Ajouter un utilisateur</h2>
+                    </header>
+                    <div class="panel-body fiche_projet_edit ">
+
+                        <input  type="hidden"  class="form-control">
+
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Prénom : </label>
+                            <div class="col-sm-8">
+                                <input type="text"  class="form-control" th:field="*{profile.prenom}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Nom : </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" th:field="*{profile.nom}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Email : </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" th:field="*{profile.email}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10"></div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Pseudo : </label>
+                            <div class="col-sm-8">
+                                <input th:if="${!(user.username == null)}" type="text" class="form-control" th:field="*{username}" readonly>
+                                <input th:if="${user.username == null}" type="text" class="form-control" th:field="*{username}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="col-sm-4 control-label">Mot de passe : </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" th:field="*{uncryptedPwd}">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <footer class="panel-footer">
+                        <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Sauvegarder </button>
+                        <a th:href="@{/users}" class="btn btn-default"><i class="fa fa-times"></i> Annuler</a>
+                    </footer>
+                </section>
+            </form>
+        </div>
+
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

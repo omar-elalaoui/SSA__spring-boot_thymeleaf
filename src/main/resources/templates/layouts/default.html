@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.springframework.org/schema/mvc"
-      xmlns:layout="http://www.w3.org/1999/xhtml"
+<html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
@@ -19,16 +18,12 @@
     <link rel="stylesheet" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}" />
     <link rel="stylesheet" th:href="@{/vendor/bootstrap-datepicker/css/datepicker3.css}" />
     <link rel="stylesheet" th:href="@{/vendor/magnific-popup/magnific-popup.css}" />
-
     <!-- Theme CSS -->
-    <link rel="stylesheet" th:href="@{/stylesheets/theme.css?id=2}" />
-
+    <link rel="stylesheet" th:href="@{/stylesheets/theme.css}" />
     <!-- Skin CSS -->
     <link rel="stylesheet" th:href="@{/stylesheets/skins/default.css}" />
-
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" th:href="@{/stylesheets/theme-custom.css?id=1}">
-
+    <link rel="stylesheet" th:href="@{/stylesheets/theme-custom.css}">
     <!-- Fivicon-->
     <link rel="icon" type="image/png" th:href="@{/images/logo-16.png}" />
 </head>
@@ -106,7 +101,7 @@
                             <img th:src="@{/images/review.jpg}" class="img-circle" data-lock-picture="assets/images/maciri.jpg" />
                         </figure>
                         <div class="profile-info" data-lock-name="Ismail" data-lock-email="youssef_maciri">
-                            <span class="name">Ismail</span>
+                            <span class="name" th:text="${#request.getUserPrincipal().getName()}"></span>
                             <span class="role">administrateur</span>
                         </div>
 
@@ -117,13 +112,10 @@
                         <ul class="list-unstyled">
                             <li class="divider"></li>
                             <li>
-                                <a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> Mon Profile</a>
+                                <a role="menuitem" tabindex="-1" th:href="@{/users/profile_ov}"><i class="fa fa-user"></i> Mon Profile</a>
                             </li>
                             <li>
-                                <a role="menuitem" tabindex="-1" href="pages-lock-screen.html"><i class="fa fa-lock"></i> Verouiller session</a>
-                            </li>
-                            <li>
-                                <a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i> Se deconnecter</a>
+                                <a role="menuitem" tabindex="-1" th:href="@{/login?logout}"><i class="fa fa-power-off"></i> Se deconnecter</a>
                             </li>
                         </ul>
                     </div>
@@ -157,7 +149,7 @@
                         <nav id="menu" class="nav-main" role="navigation">
                             <ul class="nav nav-main">
                                 <li>
-                                    <a th:href="@{/home}">
+                                    <a th:href="@{/}">
                                         <i class="fa fa-home" aria-hidden="true"></i>
                                         <span>Dashboard</span>
                                     </a>
@@ -177,7 +169,7 @@
                                     <ul class="nav nav-children">
 
                                         <li >
-                                            <a href="pages-user-profile.html">
+                                            <a th:href="@{/users/profile}">
                                                 Mon Profil
                                             </a>
                                         </li>
@@ -225,6 +217,12 @@
                                             </div>
                                         </li>
                                     </ul>
+                                </li>
+                                <li>
+                                    <a th:href="@{/users}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/users') ? 'nav-active':''}">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                        <span>Utilisateurs</span>
+                                    </a>
                                 </li>
                             </ul>
                         </nav>

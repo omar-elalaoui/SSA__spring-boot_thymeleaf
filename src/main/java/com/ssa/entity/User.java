@@ -3,8 +3,6 @@ package com.ssa.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,7 +16,10 @@ public class User {
     @Id
     private String username;
     private String pwd;
-    private String nom;
+    private String uncryptedPwd;
+    private String codePrev;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Profile profile;
     private boolean active;
     @ManyToMany
     @JoinTable(
