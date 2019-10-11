@@ -8,9 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Profile {
     @Id @GeneratedValue
     private long id;
@@ -19,5 +17,6 @@ public class Profile {
     private String email;
     private String bio;
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
     private List<Note> notes;
 }

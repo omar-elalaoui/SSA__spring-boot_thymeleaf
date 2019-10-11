@@ -66,57 +66,33 @@
                             <h4 class="mb-md">Update Status</h4>
 
                             <section class="simple-compose-box mb-xlg">
-                                <form >
-                                    <textarea name="message-text" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1"></textarea>
+                                <form th:action="@{/users/profile/edit_note}" method="post">
+                                    <input type="hidden" name="profile_id" th:value="${user.profile.id}">
+                                    <textarea name="note_text" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1"></textarea>
+                                    <div class="compose-box-footer">
+                                        <ul class="compose-toolbar">
+                                        </ul>
+                                        <ul class="compose-btn">
+                                            <li>
+                                                <button class="btn btn-primary btn-xs" type="submit">Post</button>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </form>
-                                <div class="compose-box-footer">
-                                    <ul class="compose-toolbar">
-                                    </ul>
-                                    <ul class="compose-btn">
-                                        <li>
-                                            <a class="btn btn-primary btn-xs">Post</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </section>
 
                             <h4 class="mb-xlg">Timeline</h4>
-
                             <div class="timeline timeline-simple mt-xlg mb-md">
                                 <div class="tm-body">
-                                    <div class="tm-title">
-                                        <h3 class="h5 text-uppercase">November 2013</h3>
-                                    </div>
                                     <ol class="tm-items">
-                                        <li>
+                                        <li th:each="note: ${notes}">
                                             <div class="tm-box">
-                                                <p class="text-muted mb-none">7 months ago.</p>
-                                                <p>
-                                                    It's awesome when we find a good solution for our projects, Porto Admin is <span class="text-primary">#awesome</span>
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="tm-box">
-                                                <p class="text-muted mb-none">7 months ago.</p>
-                                                <p>
-                                                    What is your biggest developer pain point?
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="tm-box">
-                                                <p class="text-muted mb-none">7 months ago.</p>
-                                                <p>
-                                                    Checkout! How cool is that!
-                                                </p>
-                                                <div class="thumbnail-gallery">
-                                                    <a class="img-thumbnail lightbox" href="assets/images/projects/project-4.jpg" data-plugin-options='{ "type":"image" }'>
-                                                        <img class="img-responsive" width="215" height="215" src="assets/images/projects/project-4.jpg">
-                                                        <span class="zoom">
-                                                                    <i class="fa fa-search"></i>
-                                                                </span>
-                                                    </a>
+                                                <p class="text-muted mb-none" th:text="${#dates.format(note.date, 'dd-MM-yyyy     HH:mm')}"></p>
+                                                <div class="row">
+                                                    <div class="col-sm-11">
+                                                        <p th:text="${note.note}"></p>
+                                                    </div>
+                                                    <div class="col-sm-1"><a th:href="@{'/users/profile/'+${note.id}+'/delete_note'}"><i class="fa fa-trash-o text-danger"></i></a></div>
                                                 </div>
                                             </div>
                                         </li>

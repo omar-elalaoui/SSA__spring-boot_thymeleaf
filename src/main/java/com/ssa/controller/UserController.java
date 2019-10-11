@@ -1,5 +1,6 @@
 package com.ssa.controller;
 
+import com.ssa.entity.Note;
 import com.ssa.entity.Profile;
 import com.ssa.entity.User;
 import com.ssa.service.impl.UserServiceImpl;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.*;
 
 @Controller
 public class UserController {
@@ -62,6 +65,9 @@ public class UserController {
     public String users_profile(Model model) {
         User user= userService.findById(userService.getcurrentUsername());
         model.addAttribute("user", user);
+        List<Note> notes= user.getProfile().getNotes();
+        Collections.reverse(notes);
+        model.addAttribute("notes", notes);
         return "users_profile_ov";
     }
     
@@ -88,5 +94,16 @@ public class UserController {
         return "users_profile_param";
     }
     
+    @PostMapping("/users/profile/edit_note")
+    public String utilisateurs_note(Model model, long profile_id, String note_text) {
+        userService.add_user_note(profile_id, note_text);
+        return "redirect:/users/profile_ov";
+    }
+    
+    @GetMapping("/users/profile/{note_id}/delete_note")
+    public String utilisateurs_delete_note(@PathVariable(value="note_id") long note_id) {
+        userService.deleteNoteById(note_id);
+        return "redirect:/users/profile_ov";
+    }
     
 }
