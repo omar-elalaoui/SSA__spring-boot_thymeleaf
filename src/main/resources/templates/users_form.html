@@ -12,7 +12,7 @@
 
     <section role="main" class="content-body">
         <header class="page-header">
-            <h2 class="pull-left">Accueil</h2>
+            <h2 class="pull-left">Modifier les infos d'utilisateur</h2>
         </header>
         <!-- start: page -->
 
@@ -34,6 +34,7 @@
                         <div class="form-group col-md-10">
                             <label class="col-sm-4 control-label">Prénom : </label>
                             <div class="col-sm-8">
+                                <input type="hidden" th:field="*{profile.id}">
                                 <input type="text"  class="form-control" th:field="*{profile.prenom}">
                             </div>
                         </div>

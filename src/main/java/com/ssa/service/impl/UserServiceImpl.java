@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,11 +24,14 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public void save(User user) {
-        List<Role> roles= new ArrayList<Role>();
-        Role user_role= new Role();
-        user_role.setRole("USER");
-        roles.add(user_role);
-        user.setRoles(roles);
+        if(findById(user.getUsername()) == null){
+            List<Role> roles= new ArrayList<Role>();
+            Role user_role= new Role();
+            user_role.setRole("USER");
+            roles.add(user_role);
+            user.setRoles(roles);
+        }
+        
         user.setUncryptedPwd(user.getUncryptedPwd());
         user.setPwd(passwordEncoder.encode(user.getUncryptedPwd()));
         user.setActive(true);
@@ -64,8 +68,10 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public User findById(String username) {
-        return userRepository.findById(username).get();
-        
+        Optional optional= userRepository.findById(username);
+        if(optional.isPresent())
+            return (User)optional.get();
+        return null;
     }
     
     @Override

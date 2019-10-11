@@ -101,8 +101,9 @@
                             <img th:src="@{/images/review.jpg}" class="img-circle" data-lock-picture="assets/images/maciri.jpg" />
                         </figure>
                         <div class="profile-info" data-lock-name="Ismail" data-lock-email="youssef_maciri">
-                            <span class="name" th:text="${#request.getUserPrincipal().getName()}"></span>
-                            <span class="role">administrateur</span>
+                            <span class="name" th:text="${@userServiceImpl.findById(#request.getUserPrincipal().getName()).profile.prenom}+' '+ ${@userServiceImpl.findById(#request.getUserPrincipal().getName()).profile.nom}"></span>
+                            <span class="role" th:if="${#request.getUserPrincipal().getName() == 'admin'}">administrateur</span>
+                            <span class="role" th:if="${#request.getUserPrincipal().getName() != 'admin'}">utilisateur</span>
                         </div>
 
                         <i class="fa custom-caret"></i>
@@ -169,7 +170,7 @@
                                     <ul class="nav nav-children">
 
                                         <li >
-                                            <a th:href="@{/users/profile}">
+                                            <a th:href="@{/users/profile_ov}">
                                                 Mon Profil
                                             </a>
                                         </li>
