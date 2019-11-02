@@ -19,12 +19,18 @@ public class ProjetServiceImpl implements ProjetService {
     
     @Override
     public void save(Projet projet) {
+        
         projetRepository.save(projet);
     }
     
     @Override
     public Projet findById(String ref) {
         return projetRepository.findById(ref).get();
+    }
+    
+    @Override
+    public void deleteById(String id) {
+        projetRepository.deleteById(id);
     }
     
     @Override

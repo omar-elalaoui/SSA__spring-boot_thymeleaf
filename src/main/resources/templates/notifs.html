@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        i{
+            font-size: 17px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page" layout:fragment="content">
+
+
+    <section role="main" class="content-body">
+        <header class="page-header">
+            <h2 class="pull-left">Les connexions</h2>
+        </header>
+        <!-- start: page -->
+
+        <div class="">
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                        <a href="#" class="fa fa-times"></a>
+                    </div>
+
+                    <h2 class="panel-title">Notifications</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-none">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            <tr th:each="notif: ${notifs}">
+                                <td >
+                                    <a th:text="${notif.projetPerName} + ' ('+${notif.projetid}+')'" th:href="@{'/projets/'+${notif.projetid}+'/pices/phase1'}"></a>
+                                </td>
+                                <td class="text-center">
+                                    <a th:href="@{'/notifs/'+${notif.id}+'/reporter'}" class="btn btn-warning btn-xs"><i class="fa fa-clock-o"></i> Reporter</a> | <i class="fa fa-trash-o text-danger"></i>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- end: page -->
+    </section>
+
+</div>
+
+</body>
+</html>

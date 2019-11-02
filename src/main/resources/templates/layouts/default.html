@@ -43,24 +43,23 @@
                     <li>
                         <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
-                            <span class="badge">3</span>
+                            <span class="badge notif_span">0</span>
                         </a>
 
                         <div class="dropdown-menu notification-menu">
                             <div class="notification-title">
-                                <span class="pull-right label label-default">3</span>
-                                Alerts
+                                Notifications
                             </div>
 
                             <div class="content">
-                                <ul>
-                                    <li>
+                                <ul class="notif_ls">
+                                    <li >
                                         <a href="#" class="clearfix">
                                             <div class="image">
                                                 <i class="fa fa-warning "></i>
                                             </div>
-                                            <span class="title">Vous avez un projet en suspension!</span>
-                                            <span class="message">il y a 2 minutes</span>
+                                            <span class="notif_text title">Vous avez un projet en suspension!</span>
+                                            <span class="notif_time message">il y a 2 minutes</span>
                                         </a>
                                     </li>
                                     <li>
@@ -155,12 +154,28 @@
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="mailbox-folder.html">
-                                        <span class="pull-right label label-primary">3</span>
+
+                                <li class="nav-parent">
+                                    <a>
+                                        <span class="pull-right label label-warning notif_span">3</span>
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                         <span>Notifications et alertes</span>
                                     </a>
+                                    <ul class="nav nav-children">
+
+                                        <li >
+                                            <a th:href="@{/notifs}">
+                                                Notifs
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a th:href="@{/notifs/reportes}">
+                                                Notifs. Reportés
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
                                 <li class="nav-parent">
                                     <a>
@@ -175,10 +190,25 @@
                                             </a>
                                         </li>
 
-                                        <li>
-                                            <a href="pages-log-viewer.html">
-                                                Log Viewer
+                                        <li class="nav-parent">
+                                            <a>
+                                                <span>Log Viewer</span>
                                             </a>
+                                            <ul class="nav nav-children">
+
+                                                <li >
+                                                    <a th:href="@{/log/actions}">
+                                                        Actions
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a th:href="@{/log/connexions}">
+                                                        Connexions
+                                                    </a>
+                                                </li>
+
+                                            </ul>
                                         </li>
 
                                     </ul>
@@ -194,7 +224,6 @@
                                             <a th:href="@{/projets}">
                                                 Projets
                                                 <span class="pull-right label label-primary">3</span>
-
                                             </a>
                                         </li>
 

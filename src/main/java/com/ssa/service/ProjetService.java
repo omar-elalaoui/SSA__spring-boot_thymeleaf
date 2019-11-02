@@ -10,6 +10,7 @@ import java.util.List;
 public interface ProjetService {
     public void save(Projet projet);
     public Projet findById(String id);
+    public void deleteById(String id);
     public List<Projet> findAll();
     public Phase1 convertToPhase1(Phase1MultipartFiles files, Phase1 phase1) throws IOException;
     public Phase2 convertToPhase2(Phase2MultipartFiles files, Phase2 phase2) throws IOException;

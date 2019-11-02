@@ -1,7 +1,9 @@
 .phase_disable {
     color: gray !important;
 }
-
+.notif_ls > a{
+    margin-bottom: 10px;
+}
 .ch_project_list_item:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
 }

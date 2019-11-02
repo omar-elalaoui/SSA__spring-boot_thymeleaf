@@ -6,10 +6,7 @@ import com.ssa.dao.Phase3Repository;
 import com.ssa.dao.Phase4Repository;
 import com.ssa.entity.*;
 import com.ssa.service.SsaUtil;
-import com.ssa.service.impl.DescProjetServiceImpl;
-import com.ssa.service.impl.FicheProjetServiceImpl;
-import com.ssa.service.impl.ProjetServiceImpl;
-import com.ssa.service.impl.SuiviChantierServiceImpl;
+import com.ssa.service.impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -38,6 +35,10 @@ public class ProjectController {
     Phase3Repository phase3Service;
     @Autowired
     Phase4Repository phase4Service;
+    @Autowired
+    LogServiceImpl logService;
+    @Autowired
+    NotificationServiceImpl notificationService;
     
     
     @PostMapping("/add")
@@ -45,7 +46,15 @@ public class ProjectController {
         String generatedRef= SsaUtil.generateRef();
         projet.setRef(generatedRef);
         projet.getFicheProjet().setRef(generatedRef);
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+")";
+        logService.ajout_log(projectDes);
         projetService.save(projet);
+        return "redirect:/projets";
+    }
+    
+    @GetMapping("/{username}/delete")
+    public String delete(@PathVariable(value="username") String username, Model model) {
+        projetService.deleteById(username);
         return "redirect:/projets";
     }
     
@@ -119,16 +128,24 @@ public class ProjectController {
     //    --------Project Edit----------- //
     @PostMapping("/fiche/edit")
     public String project_fiche_edit(FicheProjet ficheProjet) {
+        String projectDes= ficheProjet.getPrenom()+" "+ficheProjet.getNom()+" ("+ficheProjet.getRef()+") [Fiche Projet]";
+        logService.modification_log(projectDes);
         ficheProjetService.save(ficheProjet);
         return "redirect:/projets/"+ficheProjet.getRef()+"/fiche";
     }
     @PostMapping("/description/edit")
     public String project_description_edit(DescProjet descProjet, String projet_ref) {
+        Projet projet= projetService.findById(projet_ref);
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+") [Description]";
+        logService.modification_log(projectDes);
         descProjetService.save(descProjet);
         return "redirect:/projets/"+projet_ref+"/description";
     }
     @PostMapping("/suivi_chantier/edit")
     public String project_suivi_chantier_edit(SuiviChantier suiviChantier, String projet_ref) {
+        Projet projet= projetService.findById(projet_ref);
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+") [Suivi Chantier]";
+        logService.modification_log(projectDes);
         suiviChantierService.save(suiviChantier);
         return "redirect:/projets/"+projet_ref+"/suivi_chantier";
     }
@@ -291,6 +308,8 @@ public class ProjectController {
             projet.setPJointes(pJointes);
             projetService.save(projet);
         }
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+") [Phase 1]";
+        logService.modification_log(projectDes);
         return "redirect:/projets/"+id+"/pices/phase1";
     }
     
@@ -309,6 +328,8 @@ public class ProjectController {
                 projetService.save(projet);
             }
         }
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+") [Phase 2]";
+        logService.modification_log(projectDes);
         return "redirect:/projets/"+id+"/pices/phase2";
     }
     
@@ -328,6 +349,8 @@ public class ProjectController {
                 projetService.save(projet);
             }
         }
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+") [Phase 3]";
+        logService.modification_log(projectDes);
         return "redirect:/projets/"+id+"/pices/phase3";
     }
     
@@ -346,6 +369,8 @@ public class ProjectController {
                 projetService.save(projet);
             }
         }
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+") [Phase 4]";
+        logService.modification_log(projectDes);
         return "redirect:/projets/"+id+"/pices/phase4";
     }
     //    --------fin Edit----------- //

@@ -48,9 +48,9 @@ public class UserController {
         return "users_form";
     }
     
-    @GetMapping("/users/delete")
-    public String delete(String user, Model model) {
-        userService.deleteById(user);
+    @GetMapping("/users/{username}/delete")
+    public String delete(@PathVariable(value="username") String username, Model model) {
+        userService.deleteById(username);
         return "redirect:/users";
     }
     

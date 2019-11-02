@@ -59,6 +59,21 @@
         </nav>
         <br>
         <!-- start: page -->
+        <div class="modal fade" id="supp_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Vous êtes Sur de supprimer ce projet ?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-danger submit_supp"><i class="fa fa-trash-o"></i> Supprimer</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <section class="panel panel-featured panel-featured-primary">
             <header class="panel-heading">
@@ -119,6 +134,7 @@
                     </tr>
                     </tbody>
                 </table>
+                <a th:href="@{'/projets/'+${fiche.ref}+'/delete'}" class="btn_supp btn btn-danger"><i class="fa fa-trash-o"></i> Supprimer projet</a>
             </div>
         </section>
 

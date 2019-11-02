@@ -21,6 +21,21 @@
         </header>
         <!-- start: page -->
 
+        <div class="modal fade" id="supp_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Vous êtes Sur de supprimer cet utilisateur ?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-danger submit_supp"><i class="fa fa-trash-o"></i> Supprimer</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="">
             <section class="panel">
                 <header class="panel-heading">
@@ -52,7 +67,7 @@
                                 <td th:text="${user.profile.email}"></td>
                                 <td class="text-center" >
                                     <a th:href="@{'/users/'+${user.username}+'/edit'}"><i class="fa fa-edit text-primary"></i></a> &ensp;&ensp;|&ensp;&ensp;
-                                    <a href=""><i class="fa fa-trash-o text-danger"></i></a>
+                                    <a th:href="@{'/users/'+${user.username}+'/delete'}" class="btn_supp"><i class="fa fa-trash-o text-danger"></i></a>
                                 </td>
                             </tr>
                             </tbody>
