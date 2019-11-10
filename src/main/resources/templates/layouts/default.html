@@ -39,7 +39,7 @@
 
                 <span class="separator"></span>
 
-                <ul class="notifications">
+                <ul class="notifications" sec:authorize="hasRole('ADMIN')">
                     <li>
                         <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
@@ -53,39 +53,13 @@
 
                             <div class="content">
                                 <ul class="notif_ls">
-                                    <li >
-                                        <a href="#" class="clearfix">
-                                            <div class="image">
-                                                <i class="fa fa-warning "></i>
-                                            </div>
-                                            <span class="notif_text title">Vous avez un projet en suspension!</span>
-                                            <span class="notif_time message">il y a 2 minutes</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="clearfix">
-                                            <div class="image">
-                                                <i class="fa fa-lock bg-warning"></i>
-                                            </div>
-                                            <span class="title">User Locked</span>
-                                            <span class="message">il y a 15 minutes</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="clearfix">
-                                            <div class="image">
-                                                <i class="fa fa-signal bg-success"></i>
-                                            </div>
-                                            <span class="title">Connecté Avec la base de donnée</span>
-                                            <span class="message">10/10/2014</span>
-                                        </a>
-                                    </li>
+
                                 </ul>
 
                                 <hr />
 
                                 <div class="text-right">
-                                    <a href="#" class="view-more">View All</a>
+                                    <a th:href="@{/notifs}" class="view-more">Voir tout</a>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +86,7 @@
                         <ul class="list-unstyled">
                             <li class="divider"></li>
                             <li>
-                                <a role="menuitem" tabindex="-1" th:href="@{/users/profile_ov}"><i class="fa fa-user"></i> Mon Profile</a>
+                                <a role="menuitem" tabindex="-1" th:href="@{/user/profile_ov}"><i class="fa fa-user"></i> Mon Profile</a>
                             </li>
                             <li>
                                 <a role="menuitem" tabindex="-1" th:href="@{/login?logout}"><i class="fa fa-power-off"></i> Se deconnecter</a>
@@ -130,46 +104,48 @@
             <!-- start: sidebar -->
             <aside id="sidebar-left" class="sidebar-left">
 
-                <div class="sidebar-header">
-                    <div class="logo-container-sidebarheader-left">
-                        <img th:src="@{/images/ssa.png}" height="50" width="50" alt="Logo SSA-sidebar-left" />
+                <a th:href="@{/dash}">
+                    <div class="sidebar-header">
+                        <div class="logo-container-sidebarheader-left">
+                            <img th:src="@{/images/ssa.png}" height="50" width="50" alt="Logo SSA-sidebar-left" />
+                        </div>
+                        <div class="brand-name-container">
+                            <header>
+                                <h4>Smart System Architecture</h4>
+                            </header>
+                        </div>
+                        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                            <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                        </div>
                     </div>
-                    <div class="brand-name-container">
-                        <header>
-                            <h4>Smart System Architecture</h4>
-                        </header>
-                    </div>
-                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-                    </div>
-                </div>
+                </a>
                 <br><br>
                 <div class="nano">
                     <div class="nano-content">
                         <nav id="menu" class="nav-main" role="navigation">
                             <ul class="nav nav-main">
-                                <li>
-                                    <a th:href="@{/}">
+                                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/dash') ? 'nav-active':''}">
+                                    <a th:href="@{/dash}">
                                         <i class="fa fa-home" aria-hidden="true"></i>
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
 
-                                <li class="nav-parent">
+                                <li sec:authorize="hasRole('ADMIN')" class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/notifs') ? 'nav-expanded':''}">
                                     <a>
-                                        <span class="pull-right label label-warning notif_span">3</span>
+                                        <span class="pull-right label label-warning notif_span">0</span>
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                         <span>Notifications et alertes</span>
                                     </a>
                                     <ul class="nav nav-children">
 
-                                        <li >
-                                            <a th:href="@{/notifs}">
+                                        <li th:classappend="${#httpServletRequest.getRequestURI().endsWith('/notifs') ? 'nav-active':''}">
+                                            <a th:href="@{/notifs}" >
                                                 Notifs
                                             </a>
                                         </li>
 
-                                        <li>
+                                        <li th:classappend="${#httpServletRequest.getRequestURI().endsWith('/notifs/reportes') ? 'nav-active':''}">
                                             <a th:href="@{/notifs/reportes}">
                                                 Notifs. Reportés
                                             </a>
@@ -177,7 +153,7 @@
 
                                     </ul>
                                 </li>
-                                <li class="nav-parent">
+                                <li class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/log') ? 'nav-expanded':''}">
                                     <a>
                                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                         <span>Navigation</span>
@@ -185,24 +161,24 @@
                                     <ul class="nav nav-children">
 
                                         <li >
-                                            <a th:href="@{/users/profile_ov}">
+                                            <a th:href="@{/user/profile_ov}">
                                                 Mon Profil
                                             </a>
                                         </li>
 
-                                        <li class="nav-parent">
+                                        <li sec:authorize="hasRole('ADMIN')" class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/log') ? 'nav-expanded':''}">
                                             <a>
                                                 <span>Log Viewer</span>
                                             </a>
                                             <ul class="nav nav-children">
 
-                                                <li >
+                                                <li th:classappend="${#httpServletRequest.getRequestURI().endsWith('/log/actions') ? 'nav-active':''}">
                                                     <a th:href="@{/log/actions}">
                                                         Actions
                                                     </a>
                                                 </li>
 
-                                                <li>
+                                                <li th:classappend="${#httpServletRequest.getRequestURI().endsWith('/log/connexions') ? 'nav-active':''}">
                                                     <a th:href="@{/log/connexions}">
                                                         Connexions
                                                     </a>
@@ -223,7 +199,7 @@
                                         <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/projets') ? 'nav-active':''}">
                                             <a th:href="@{/projets}">
                                                 Projets
-                                                <span class="pull-right label label-primary">3</span>
+                                                <span class="pull-right label label-primary nbr_projet_span">3</span>
                                             </a>
                                         </li>
 
@@ -249,7 +225,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a th:href="@{/users}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/users') ? 'nav-active':''}">
+                                    <a sec:authorize="hasRole('ADMIN')" th:href="@{/users}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/users') ? 'nav-active':''}">
                                         <i class="fa fa-users" aria-hidden="true"></i>
                                         <span>Utilisateurs</span>
                                     </a>

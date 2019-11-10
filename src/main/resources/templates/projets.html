@@ -21,12 +21,15 @@
             <div class="col-sm-2">
                 <a th:href="@{/projets/add}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
             </div>
-            <div class="col-sm-4">
+            <form class="col-sm-4" th:action="@{/projets/chercher_projet}" method="post">
                 <div class="input-group mb-md">
-                    <input type="text" class="form-control">
-                    <span class="input-group-addon hand"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" name="str">
+                            <span class="input-group-addon hand" id="span_searche">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        <button id="btn_searche" type="submit" hidden></button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <br>

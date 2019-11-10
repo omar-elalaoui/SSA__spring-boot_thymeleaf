@@ -19,5 +19,6 @@ public class Notification {
     private String projetid;
     private String projetPerName;
     private Date date;
+    private Date report_date;
     private boolean reported;
 }

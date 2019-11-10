@@ -9,7 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -61,7 +60,7 @@ public class UserController {
         return "redirect:/users";
     }
     
-    @GetMapping("/users/profile_ov")
+    @GetMapping("/user/profile_ov")
     public String users_profile(Model model) {
         User user= userService.findById(userService.getcurrentUsername());
         model.addAttribute("user", user);
@@ -71,7 +70,7 @@ public class UserController {
         return "users_profile_ov";
     }
     
-    @GetMapping("/users/profile_param")
+    @GetMapping("/user/profile_param")
     public String users_profileparam(Model model) {
         User user= userService.findById(userService.getcurrentUsername());
         model.addAttribute("user", user);
@@ -81,7 +80,7 @@ public class UserController {
     @PostMapping("/users/profile/edit_admin_code")
     public String utilisateurs_editr(String admin_username, String code_prev) {
         userService.update_admin_code(admin_username,code_prev);
-        return "redirect:/users/profile_param";
+        return "redirect:/user/profile_param";
     }
     
     @PostMapping("/users/profile/edit_admin_pwd")
@@ -94,16 +93,16 @@ public class UserController {
         return "users_profile_param";
     }
     
-    @PostMapping("/users/profile/edit_note")
+    @PostMapping("/user/profile/edit_note")
     public String utilisateurs_note(Model model, long profile_id, String note_text) {
         userService.add_user_note(profile_id, note_text);
-        return "redirect:/users/profile_ov";
+        return "redirect:/user/profile_ov";
     }
     
-    @GetMapping("/users/profile/{note_id}/delete_note")
+    @GetMapping("/user/profile/{note_id}/delete_note")
     public String utilisateurs_delete_note(@PathVariable(value="note_id") long note_id) {
         userService.deleteNoteById(note_id);
-        return "redirect:/users/profile_ov";
+        return "redirect:/user/profile_ov";
     }
     
 }

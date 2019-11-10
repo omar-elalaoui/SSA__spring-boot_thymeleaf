@@ -17,9 +17,24 @@
 
     <section role="main" class="content-body">
         <header class="page-header">
-            <h2 class="pull-left">Les connexions</h2>
+            <h2 class="pull-left">Les notifications reportés</h2>
         </header>
         <!-- start: page -->
+
+        <div class="modal fade" id="supp_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Vous êtes Sur de supprimer cette notification ?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-danger submit_supp"><i class="fa fa-trash-o"></i> Supprimer</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="">
             <section class="panel">
@@ -39,10 +54,11 @@
                             <tbody>
                             <tr th:each="notif: ${notifs}">
                                 <td >
-                                    <a th:text="${notif.projetid}" th:href="@{'/projets/'+${notif.projetid}+'/pices/phase1'}"></a>
+                                    <a class="notif_line" th:text="${notif.projetPerName} + ' ('+${notif.projetid}+')'" th:href="@{'/projets/'+${notif.projetid}+'/pices/phase1'}"></a>
                                 </td>
-                                <td >
-                                    <a href="#" class="btn btn-warning"><i class="fa fa-time"></i>Reporter</a>
+                                <td th:class="'notif_rp_'+${notif.id}"></td>
+                                <td class="text-center" width="10%">
+                                    <a th:href="@{'/notifs/'+${notif.id}+'/delete_r'}" class="btn_supp"><i class="fa fa-trash-o text-danger"></i></a>
                                 </td>
                             </tr>
                             </tbody>

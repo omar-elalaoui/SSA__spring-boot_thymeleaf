@@ -1,0 +1,98 @@
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>&ensp;</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" media='all'/>
+
+    <!-- Invoice Print Style -->
+    <link rel="stylesheet" th:href="@{/stylesheets/invoice-print.css}" media='all'/>
+</head>
+
+<body>
+
+<div class="invoice doc_12">
+
+    <div>
+
+        <div class="header">
+            <div class="row">
+                <div class="head-left col-xs-3">
+                    <img th:src="@{/images/logo_ssa.png}" alt="">
+                </div>
+                <div class="head-right col-xs-9">
+                    <span class="print_tch_ym">YOUSSEF MACIRI</span>
+                    <span class="print_rch_ach">ARCHITECTE D’E.N.A </span>
+
+                    <p>
+                        <span>CABINET D’ARCHITECTURE, D’URBANISME ET DESIGN</span><br>
+                        <span>Immeuble Maison de L’avocat 5 ème étage, Bureau 540 bd Hassan II Agadir </span>
+                        <span class="tel"><u>cabinet.architecture.0528840984@gmail.com</u> TEL / FAX: 0528-84-09-84 GSM: 0661-51-45-91
+                            </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="hr_cm"></div>
+        <div class="body">
+
+            <div class="footer">
+                <div class="left">Réf : ..............................</div>
+                <div class="right">AGADIR LE : ...............................</div>
+            </div>
+
+
+
+            <div class="section1_title print_title">ATTESTATION FIN TRAVAUX</div>
+            <div class="section1_list">
+                <ul>
+                    <li><span>PROPRIÉTAIRE :</span> …………………………………</li>
+                    <li><span>OBJET :</span> …………………………………</li>
+                    <li><span>SITUATION :</span> …………………………………</li>
+                    <li><span>PREFECTURE :</span> …………………………………</li>
+                </ul>
+            </div>
+
+
+            <div class="section2_title print_title">ATTESTE QUE</div>
+
+            <div class="section2_list">
+                <ul>
+                    <li>Suite à la visite effectuée en date de :…………..……………….. sur les lieux</li>
+                    <li>Suite à l’attestation du bureau de contrôle …………………………………….. <br>du ………….. ET REF N° :………………… présenter par le maître d’ouvrage.</li>
+                    <li>La construction du logement cité en objet est réalisée ……………………….. conformément au plan autorisé sous n° …………… DU …………………...</li>
+                    <li>Cette attestation concerne :…………………………………………………..</li>
+                    <li>
+                        Cette attestation ne peut se substituer à la réception des travaux des entreprises engagées par le maitre d’ouvrage, et ne constitue pas une main levé pour leur engagement envers ce dernier. <br> <br>
+
+                        Je décline toute responsabilité de toute modification ultérieure à la date de la visite.
+                        Cette attestation est délivrée pour servir et valoir ce que de droit.</li>
+                </ul>
+            </div>
+
+
+            <br>
+            <br>
+            <div class="signature_right">
+                SIGNE
+            </div>
+
+            <br><br><br>
+            <br><br><br>
+            <div class="footer_s">
+                <div class="hr_cm2"></div>
+                <div class="footer_link">RC: N° 446/48308 - PATENTE N°: 48122540 -TVA: 75769450 -CNSS: 6884200</div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script>
+        window.print();
+
+    </script>
+</div>
+</body>
+
+</html>

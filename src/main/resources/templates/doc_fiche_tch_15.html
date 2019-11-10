@@ -1,0 +1,124 @@
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>&ensp;</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" media='all'/>
+
+    <!-- Invoice Print Style -->
+    <link rel="stylesheet" th:href="@{/stylesheets/invoice-print.css}" media='all'/>
+</head>
+
+<body>
+    <div class="invoice fiche_tch">
+
+    <div class="">
+
+        <div class="header">
+            <div class="row">
+                <div class="head-left col-xs-3">
+                    <img th:src="@{/images/logo_ssa.png}" alt="logo">
+                </div>
+                <div class="head-right col-xs-9">
+                    <span class="print_tch_ym">YOUSSEF MACIRI</span>
+                    <span class="print_rch_ach">ARCHITECTE D’E.N.A </span>
+
+                    <p>
+                        <span>CABINET D’ARCHITECTURE, D’URBANISME ET DESIGN</span><br>
+                        <span>Immeuble Maison de L’avocat 5 ème étage, Bureau 540 bd Hassan II Agadir </span>
+                        <span class="tel"><u>cabinet.architecture.0528840984@gmail.com</u> TEL / FAX: 0528-84-09-84 GSM: 0661-51-45-91
+                            </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hr_cm"></div>
+
+        <div class="body">
+
+            <div class="fiche_tch_header">Fiche technique et présentation</div>
+            <br>
+
+            <div class="section">
+                <h4><u>Identification de maitre d’ouvrage</u></h4>
+                <div class="contenu">
+                    <ul>
+                        <li>Nom et prénom du propriétaire: </li>
+                        <li>Fils de......... et de :</li>
+                        <li>Profession</li>
+                        <li>CIN N°........ou I.F pour les ste :</li>
+                        <li>Adresse et coordonnée du maitre d’ouvrage</li>
+                        <li>tel...... e-mail :.....</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4><u>Prestation de projet</u></h4>
+                <div class="contenu">
+                    <ul>
+                        <li>Nature de projet : </li>
+                        <li>Nature des travaux :</li>
+                        <li>Catégorie de construction :</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h4><u>Situation de projet</u></h4>
+                <div class="contenu">
+                    <ul>
+                        <li>lieux de projet: </li>
+                        <li>Commune :</li>
+                        <li>Province : </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h4><u>Fiche de projet</u></h4>
+                <div class="contenu">
+                    <ul>
+                        <li>Titre foncier N° : ……………</li>
+                        <li>Nombre de niveau : ……….</li>
+                        <li>Nombre de logements : ……</li>
+                        <li>Hauteur moyen de la construction : ………</li>
+                        <li>Consistance de projet : ………………….…………</li>
+                        <li>Surface de terrain : ………………………..…………</li>
+                        <li>Surface bâtie : ……………………………………………</li>
+                        <li>Surface couverte plancher : …….</li>
+                        <li>Surface : s/sol ....... s/RDC : ....... s/etage1 ....... s/etage 2 : ....... <br>
+                            s/etage 3 ……… etc ………</li>
+                        <li>Cos : …….. % <span class="space"></span> CUS …… %.</li>
+                        <li>Prix de mètre carré couvert : ……………. dh/m² (1-2-5-15)</li>
+                        <li>Cout estimatif de projet : …………. DH TTC. (Dont tva 20%).</li>
+                        <li>Durée des travaux : ………… mois.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+            <div class="signature_right">
+                SIGNE
+            </div>
+
+            <br><br><br>
+            <div class="footer_s">
+                <div class="hr_cm2"></div>
+                <div class="footer_link">RC: N° 446/48308 - PATENTE N°: 48122540 -TVA: 75769450 -CNSS: 6884200</div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        window.print();
+
+    </script>
+</div>
+</body>
+
+</html>

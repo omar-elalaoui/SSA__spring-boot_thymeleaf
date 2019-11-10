@@ -51,25 +51,24 @@
                               th:action="@{/projets/add}" th:object="${projet}" method="post">
                             <div class="row">
                                 <div class="col-md-10">
-
                                     <div class="tab-content">
                                         <div id="ficheprojet" class="tab-pane active">
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Nom</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.nom}"required>
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.nom}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Prenom</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.prenom}"required>
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.prenom}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">CIN</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.cin}"required>
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.cin}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -82,20 +81,29 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Situation</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.situation}"required>
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.situation}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Nature du projet</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.nature_projet}"required>
+                                                    <select th:name="ficheProjet.nature_projet" required>
+                                                        <option value="">Choisir</option>
+                                                        <option value="Immeuble">Immeuble</option>
+                                                        <option value="Villa">Villa</option>
+                                                        <option value="Construction(type marocain)">Construction(type marocain)</option>
+                                                        <option value="Industrie et commerciale">Industrie et commerciale</option>
+                                                        <option value="Administrative">Administrative</option>
+                                                        <option value="Enseignement, Santé">Enseignement, Santé</option>
+                                                        <option value="Divers(Garage, Mosquée ect)">Divers(Garage, Mosquée ect)</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Date entrée</label>
                                                 <div class="col-sm-9">
-                                                    <input type="date" class="form-control" th:field="*{ficheProjet.date_entree}"required>
+                                                    <input type="date" class="form-control" th:field="*{ficheProjet.date_entree}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -107,7 +115,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Dessinateur</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{ficheProjet.dessinateur}"required>
+                                                    <input type="text" class="form-control" th:field="*{ficheProjet.dessinateur}" required>
                                                 </div>
                                             </div>
 
@@ -118,10 +126,12 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group">
+                                                <button class="btn btn-success pull-right" type="submit"><i class="fa fa-save"></i> Enregistrer</button>
+                                            </div>
                                         </div>
+
                                         <div id="desctech" class="tab-pane">
-
-
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Surface Terrain</label>
                                                 <div class="col-sm-9">
@@ -132,67 +142,69 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Surface au sol</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="${projet.descProjet.surface_au_sol}" required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_au_sol}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Surface couverte</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_couverte}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.surface_couverte}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">COS</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.cos}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.cos}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">CUS</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.cus}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.cus}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Prix du m²</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.prixm2}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.prixm2}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Estimation travaux</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.estimation_travaux}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.estimation_travaux}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Delai</label>
                                                 <div class="col-sm-9">
-                                                    <input type="date" class="form-control" th:field="*{descProjet.delai}"required>
+                                                    <input type="date" class="form-control" th:field="*{descProjet.delai}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Travaux Honoraire</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.trav_honoraire}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.trav_honoraire}" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Montant honoraire</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" th:field="*{descProjet.mont_honoraire}"required>
+                                                    <input type="text" class="form-control" th:field="*{descProjet.mont_honoraire}" required>
                                                 </div>
                                             </div>
 
-
+                                            <div class="form-group">
+                                                <button class="btn btn-success pull-right" type="submit"><i class="fa fa-save"></i> Enregistrer</button>
+                                            </div>
                                         </div>
                                         <div id="suivichant" class="tab-pane">
                                             <div class="form-group">

@@ -39,6 +39,18 @@ public class NotifController {
         return "redirect:/notifs";
     }
     
+    @GetMapping("/{id}/delete")
+    public String notiftrash(Model model, @PathVariable(value="id") long id) {
+        notificationService.deleteById(id);
+        return "redirect:/notifs";
+    }
+    
+    @GetMapping("/{id}/delete_r")
+    public String notiftrasch(Model model, @PathVariable(value="id") long id) {
+        notificationService.deleteById(id);
+        return "redirect:/notifs/reportes";
+    }
+    
     @GetMapping("/reportes")
     public String notifsR(Model model) {
         List<Notification> notifList= notificationRepository.findByReportedIsTrue();

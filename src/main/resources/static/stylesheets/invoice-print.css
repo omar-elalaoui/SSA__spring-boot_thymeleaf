@@ -1,3 +1,109 @@
+@media print {body {margin: .5cm; -webkit-print-color-adjust: exact;}}
+@media print { @page { margin: 0;} }
+
+.pour_avis{
+    font-size: 23px;
+    text-decoration: underline;
+}
+
+.a_monsieur{
+    text-align: center;
+    font-size: 23px;
+}
+
+table{
+    font-size: 15px;
+}
+table td, table th{ padding: 2px 10px !important;}
+
+
+.doc_14 .section1_list li span{  width: 120px !important;}
+
+.doc_14 .section1_title{
+    font-size: 33px;
+    padding: 30px 0px !important;
+}
+
+
+.print_title{
+    font-family: serif !important;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.doc_12 .section1_title{
+    font-size: 33px;
+    padding: 50px 0px;
+}
+.doc_12 .section2_title{
+    font-size: 27px;
+    padding: 30px 0px;
+}
+.doc_13 .section2_title{
+    padding: 25px 0px 25px 26px; !important;
+    text-align: left !important;
+    font-size: 22px;
+}
+.doc_12 .section1_list li{ list-style: none;}
+.doc_12 .section1_list li span{ display: inline-block; width: 155px !important; font-weight: bold;}
+.doc_13 .section1_list li span{  width: 180px !important;}
+.doc_13 .section1_list.s li span{  width: 200px !important;}
+.doc_13 .section1_list.s li {  padding-left: 50px !important;}
+.doc_12 .section1_list{ font-size: 18px;}
+.doc_12 .section2_list{ font-size: 18px;}
+
+.doc_12 .signature_right{ text-align: right; margin-right: 60px;}
+
+
+.doc_11 .header{
+    text-align: center;
+    margin-top: 25px;
+    font-weight: bold;
+}
+.doc_11 .logo img{ width: 150px; height: 200px; display: inline-block;}
+.doc_11 .logo { text-align: center}
+.doc_11 .fiche_ren { text-align: center; font-weight: bold;}
+.doc_11 .body{ padding: 0 50px !important;}
+.doc_12 .body{ padding: 0 30px !important;}
+.doc_11 .footer{ font-size: 17px; text-decoration: underline; font-weight: bold;}
+
+
+
+.fiche_tch .body{padding: 0 35px;}
+.fiche_tch .print_tch_ym, .doc_12 .print_tch_ym{ font-size: 20px; color: gray !important; font-weight: bold;}
+.fiche_tch .print_rch_ach, .doc_12 .print_rch_ach{ font-size: 13px; font-style: italic !important; color: darkred !important;}
+.fiche_tch .head-right, .doc_12 .head-right{ margin-top: 50px; }
+.fiche_tch .head-right p, .doc_12 .head-right p{ margin-top: 5px; }
+.fiche_tch .head-right p u, .doc_12 .head-right p u{ color: blue !important; font-style: italic !important;}
+.fiche_tch .head-right p .tel, .doc_12 .head-right p{ font-size: 12px !important; }
+.fiche_tch .fiche_tch_header, .doc_12 .fiche_tch_header{
+    font-size: 26px; !important;
+    padding: 10px !important;
+    background: #bdc3c7 !important;
+    border: 1px solid !important;
+    text-align: center;
+}
+.fiche_tch .section .contenu{ margin-left: 10px; }
+.fiche_tch .signature_right{ text-align: right !important; padding-right: 70px !important;}
+.fiche_tch .footer_s, .doc_12 .footer_s{ margin-bottom: 0px !important;}
+.fiche_tch .footer_link, .doc_12 .footer_link{ color: darkred !important; text-align: center;}
+.hr_cm{
+    border-bottom: 1px solid !important;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.hr_cm2{
+    border-bottom: 1px solid !important;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+span.space{
+    padding-left: 60px;
+}
+
+
+
+
 @font-face {
     font-family: 'times';
     src: url('times-new-roman.ttf') format('truetype');
@@ -73,11 +179,13 @@ div.invoice.declaration .title, div.invoice.contrat .title  {
 
 div.invoice.demande{
     font-size: 14px ;
-} 
+}
+
 .cont {
-    margin: 10px;
+    margin: 30px 15px;
     padding: 30px 30px;
     border: 1px solid black;
+    height: 95vh;
 }
 
 .demande .head {

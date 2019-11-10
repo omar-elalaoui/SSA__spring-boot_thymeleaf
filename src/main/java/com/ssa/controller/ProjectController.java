@@ -14,6 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/projets")
@@ -62,7 +66,25 @@ public class ProjectController {
 //    --------Affichage----------- //
     @GetMapping("")
     public String projets(Model model) {
-        model.addAttribute("projets", projetService.findAll());
+        List<Projet> projetList= projetService.findAll();
+        Collections.reverse(projetList);
+        model.addAttribute("projets", projetList);
+        return "projets";
+    }
+    @PostMapping("/chercher_projet")
+    public String chercher_projets(Model model, String str) {
+        List<Projet> projetListCherchee= new ArrayList<Projet>();
+        List<Projet> projetList= projetService.findAll();
+        Collections.reverse(projetList);
+        for(Projet projet: projetList){
+            String prenom_nom= projet.getFicheProjet().getPrenom() +" "+ projet.getFicheProjet().getNom();
+            if( Pattern.compile(Pattern.quote(str), Pattern.CASE_INSENSITIVE).matcher(prenom_nom).find()){projetListCherchee.add(projet);}
+            else{
+                String ref= projet.getRef();
+                if(Pattern.compile(Pattern.quote(str), Pattern.CASE_INSENSITIVE).matcher(ref).find()) projetListCherchee.add(projet);
+            }
+        }
+        model.addAttribute("projets", projetListCherchee);
         return "projets";
     }
     @GetMapping("/add")

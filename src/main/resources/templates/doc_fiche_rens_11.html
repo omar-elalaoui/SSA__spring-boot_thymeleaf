@@ -1,0 +1,86 @@
+<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>&ensp;</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" media='all'/>
+
+    <!-- Invoice Print Style -->
+    <link rel="stylesheet" th:href="@{/stylesheets/invoice-print.css}" media='all'/>
+</head>
+
+<body>
+
+<div class="invoice doc_11">
+
+    <div >
+        <br>
+        <div class="row">
+            <div class="header col-xs-8 col-xs-offset-2">
+                ROYAUME DU MAROC
+                MINISTERE DE L’INTERIEUR
+                DIRECTION GENERALE DE LA PROTECTION CIVILE
+                COMMANDEMENT PREFECTORAL
+                DE LA PROTECTION CIVIL
+                AGADIR
+            </div>
+        </div>
+        <br>
+        <div class="logo">
+            <img th:src="@{/images/11_logo.png}" alt="">
+        </div>
+
+        <div class="body">
+            <br>
+            <br>
+            <div class="fiche_ren">
+                <u>
+                    FICHE DE RENSEIGEMENT <br>
+                    PROJET DE CONSTRUCTION DE MODIFICATION OU D’AMENAGEMENT
+                </u>
+            </div>
+            <br>
+            <div class="section">
+                <span><b><u>PROJET DE: </u></b></span><br><br>
+                <div class="occupation_list">
+                    <ul>
+                        <li><span></span>IMMEUBLE A USGAE COMMERCIALE</li>
+                        <li><span></span>IMMEUBLE A USGAE COMMERCIALE, PROFESSIONNEL OU LIBERAL</li>
+                        <li><span></span>IMMEUBLE A USGAE MIXTE ( COMMERCE ET HABITATION)</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="section">
+                <b> Dossier n° :</b> ................................................................ <br>
+                <b> Propriétaire :</b> ................................................................ <br>
+                <b> T.F :</b> ................................................................ <br>
+                <b> Situation :</b> ................................................................. <br>
+                <b> Prefecture :</b> ................................................................. <br>
+                <b> Commune :</b> ................................................................. <br>
+                <b> Nombre de Niveau :</b>............................................................. <br>
+                <b>Nombre de m² couvert :</b> .................................................................
+
+            </div>
+
+            <br><br><br>
+            <br><br><br>
+            <div class="footer">
+                <div class="left">Le Propiétaire</div>
+                <div class="right">L’Architecte</div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script>
+        window.print();
+
+    </script>
+</div>
+</body>
+
+</html>

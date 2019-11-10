@@ -1,5 +1,9 @@
 <!doctype html>
-<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<html class="fixed" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/default">
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +19,106 @@
             <h2 class="pull-left">Dashboard</h2>
         </header>
         <!-- start: page -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <section class="panel panel-featured-left panel-featured-primary">
+                    <a th:href="@{/projets}">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-primary">
+                                        <i class="fa fa-folder-open"></i>
+                                    </div>
+                                </div>
+
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <br>
+                                        <h4 class="title">Projets</h4>
+                                        <div class="info">
+                                            <strong class="amount" th:text="${nbr_projets}"></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            </div>
+            <div class="col-md-4" sec:authorize="hasRole('ADMIN')">
+                <section class="panel panel-featured-left panel-featured-warning">
+                    <a th:href="@{/users}">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-warning">
+                                        <i class="fa fa-users"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <br>
+                                        <h4 class="title">Utilisateurs</h4>
+                                        <div class="info">
+                                            <strong class="amount" th:text="${nbr_users}"></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            </div>
+            <div class="col-md-4" sec:authorize="hasRole('ADMIN')">
+                <section class="panel panel-featured-left panel-featured-danger">
+                    <a th:href="@{/notifs}">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-danger">
+                                        <i class="fa fa-bell"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <br>
+                                        <h4 class="title">Notifications</h4>
+                                        <div class="info">
+                                            <strong class="amount" th:text="${nbr_notifs}"></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            </div>
+            <div class="col-md-5" sec:authorize="hasRole('ADMIN')">
+                <section class="panel panel-featured-left panel-featured-info">
+                    <a th:href="@{/notifs/reportes}">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-info">
+                                        <i class="fa fa-bell"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <br>
+                                        <h4 class="title">Notifications (reportés)</h4>
+                                        <div class="info">
+                                            <strong class="amount" th:text="${nbr_notifs_reported}"></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            </div>
+        </div>
         <!-- end: page -->
     </section>
 

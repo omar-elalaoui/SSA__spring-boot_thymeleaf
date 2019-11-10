@@ -120,7 +120,15 @@
                         <div class="form-group col-md-10">
                             <label class="col-sm-4 control-label">Nature du projet : </label>
                             <div class="col-sm-8">
-                                <input type="text" th:field="*{nature_projet}" class="form-control">
+                                <select th:field="*{nature_projet}" required>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Immeuble'}" value="Immeuble">Immeuble</option>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Villa'}" value="Villa">Villa</option>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Construction(type marocain)'}" value="Construction(type marocain)">Construction(type marocain)</option>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Industrie et commerciale'}" value="Industrie et commerciale">Industrie et commerciale</option>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Administrative'}" value="Administrative">Administrative</option>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Enseignement, Santé'}" value="Enseignement, Santé">Enseignement, Santé</option>
+                                    <option th:selected="${ficheProjet.nature_projet == 'Divers(Garage, Mosquée ect)'}" value="Divers(Garage, Mosquée ect)">Divers(Garage, Mosquée ect)</option>
+                                </select>
                             </div>
                         </div>
 
@@ -156,7 +164,7 @@
                     </div>
 
                     <footer class="panel-footer">
-                        <a th:href="@{'/projets/'+${ficheProjet.ref}+'fiche'}" class="btn btn-default"><i class="fa fa-times"></i> Annuler</a>
+                        <a th:href="@{'/projets/'+${ficheProjet.ref}+'/fiche'}" class="btn btn-default"><i class="fa fa-times"></i> Annuler</a>
                         <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Sauvegarder </button>
                     </footer>
                 </section>

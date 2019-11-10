@@ -1,5 +1,10 @@
 <!doctype html>
-<html class="fixed" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<html class="fixed" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +34,8 @@
                             <img th:src="@{/images/logged-user.jpg}" class="rounded img-responsive" alt="John Doe">
                             <div class="thumb-info-title">
                                 <span class="thumb-info-inner" th:text="${user.profile.prenom}+' '+${user.profile.nom}" ></span>
-                                <span class="thumb-info-type">Admin</span>
+                                <span class="thumb-info-type" th:if="${#request.getUserPrincipal().getName() == 'admin'}">Administrateur</span>
+                                <span class="thumb-info-type" th:if="${#request.getUserPrincipal().getName() != 'admin'}">Utilisateur</span>
                             </div>
                         </div>
 
@@ -57,8 +63,8 @@
                         <li class="active">
                             <a href="#overview" data-toggle="tab">Overview</a>
                         </li>
-                        <li>
-                            <a th:href="@{/users/profile_param}">Parametrage</a>
+                        <li sec:authorize="hasRole('ADMIN')">
+                            <a th:href="@{/user/profile_param}">Parametrage</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -66,7 +72,7 @@
                             <h4 class="mb-md">Update Status</h4>
 
                             <section class="simple-compose-box mb-xlg">
-                                <form th:action="@{/users/profile/edit_note}" method="post">
+                                <form th:action="@{/user/profile/edit_note}" method="post">
                                     <input type="hidden" name="profile_id" th:value="${user.profile.id}">
                                     <textarea name="note_text" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1"></textarea>
                                     <div class="compose-box-footer">
@@ -92,7 +98,7 @@
                                                     <div class="col-sm-11">
                                                         <p th:text="${note.note}"></p>
                                                     </div>
-                                                    <div class="col-sm-1"><a th:href="@{'/users/profile/'+${note.id}+'/delete_note'}"><i class="fa fa-trash-o text-danger"></i></a></div>
+                                                    <div class="col-sm-1"><a th:href="@{'/user/profile/'+${note.id}+'/delete_note'}"><i class="fa fa-trash-o text-danger"></i></a></div>
                                                 </div>
                                             </div>
                                         </li>

@@ -28,10 +28,20 @@ public class NotifRestController {
         return notificationRepository.findByReportedIsFalse().size();
     }
     
+    @GetMapping("/projetNumber")
+    public int getProjetNb(){
+        return projetService.findAll().size();
+    }
+    
     @GetMapping("/notifList")
     public List<Notification> getNotifls(){
         
         return notificationRepository.findByReportedIsFalse();
+    }
+    
+    @GetMapping("/notif_reported_list")
+    public List<Notification> getNotiflsrrr(){
+        return notificationRepository.findByReportedIsTrue();
     }
     
     @GetMapping("/projetList")
@@ -46,9 +56,29 @@ public class NotifRestController {
     public int getprhh(@PathVariable("ref") String ref){
         if(notificationRepository.findByProjetid(ref) == null){
             Projet projet= projetService.findById(ref);
-            Notification notification= new Notification(0, ref, projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom(), new Date(), false);
+            Notification notification= new Notification(0, ref, projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom(), new Date(), new Date(), false);
             notificationService.save(notification);
         }
         return 1;
     }
+    
+    
+    @GetMapping("/{id}/notif/reporter")
+    public int getprhdh(@PathVariable("id") long id){
+            Notification notification= notificationService.findById(id);
+            notification.setReport_date(null);
+            notification.setReport_date(new Date());
+            notification.setReported(false);
+            notificationService.save(notification);
+        return 1;
+    }
+    
+    @GetMapping("/{ref}/notif/delete")
+    public int getprhdhg(@PathVariable("ref") String ref){
+        Notification notification= notificationRepository.findByProjetid(ref);
+        notificationService.deleteById(notification.getId());
+        return 1;
+    }
+    
+    
 }
