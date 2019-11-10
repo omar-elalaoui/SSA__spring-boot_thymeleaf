@@ -26,7 +26,7 @@ public class NotifController {
     
     @GetMapping("")
     public String notifs(Model model) {
-        List<Notification> notifList= notificationRepository.findByReportedIsFalse();
+        List<Notification> notifList= notificationRepository.findByReportedIsFalseAndDisabledFalse();
         model.addAttribute("notifs", notifList);
         return "notifs";
     }
@@ -41,19 +41,23 @@ public class NotifController {
     
     @GetMapping("/{id}/delete")
     public String notiftrash(Model model, @PathVariable(value="id") long id) {
-        notificationService.deleteById(id);
+        Notification notification= notificationService.findById(id);
+        notification.setDisabled(true);
+        notificationService.save(notification);
         return "redirect:/notifs";
     }
     
     @GetMapping("/{id}/delete_r")
     public String notiftrasch(Model model, @PathVariable(value="id") long id) {
-        notificationService.deleteById(id);
+        Notification notification= notificationService.findById(id);
+        notification.setDisabled(true);
+        notificationService.save(notification);
         return "redirect:/notifs/reportes";
     }
     
     @GetMapping("/reportes")
     public String notifsR(Model model) {
-        List<Notification> notifList= notificationRepository.findByReportedIsTrue();
+        List<Notification> notifList= notificationRepository.findByReportedIsTrueAndDisabledFalse();
         model.addAttribute("notifs", notifList);
         return "notifsRepor";
     }

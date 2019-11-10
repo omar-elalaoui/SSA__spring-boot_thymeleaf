@@ -21,4 +21,5 @@ public class Notification {
     private Date date;
     private Date report_date;
     private boolean reported;
+    private boolean disabled;
 }

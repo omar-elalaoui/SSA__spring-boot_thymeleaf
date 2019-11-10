@@ -1,9 +1,6 @@
 package com.ssa.controller;
 
-import com.ssa.dao.Phase1Repository;
-import com.ssa.dao.Phase2Repository;
-import com.ssa.dao.Phase3Repository;
-import com.ssa.dao.Phase4Repository;
+import com.ssa.dao.*;
 import com.ssa.entity.*;
 import com.ssa.service.SsaUtil;
 import com.ssa.service.impl.*;
@@ -43,6 +40,8 @@ public class ProjectController {
     LogServiceImpl logService;
     @Autowired
     NotificationServiceImpl notificationService;
+    @Autowired
+    NotificationRepository notificationRepository;
     
     
     @PostMapping("/add")
@@ -58,6 +57,11 @@ public class ProjectController {
     
     @GetMapping("/{username}/delete")
     public String delete(@PathVariable(value="username") String username, Model model) {
+        Notification notification= notificationRepository.findByProjetid(username);
+        if(notification != null){ notificationService.deleteById(notification.getId());}
+        Projet projet= projetService.findById(username);
+        String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+")";
+        logService.supp_log(projectDes);
         projetService.deleteById(username);
         return "redirect:/projets";
     }

@@ -22,5 +22,4 @@ public class Projet {
     private PJointes pJointes;
     @OneToOne(cascade = CascadeType.ALL)
     private SuiviChantier suiviChantier;
-    
 }

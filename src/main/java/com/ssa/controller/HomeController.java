@@ -23,8 +23,8 @@ public class HomeController {
     public String dash(Model model) {
         model.addAttribute("nbr_projets", projetService.findAll().size());
         model.addAttribute("nbr_users", userService.findAll().size());
-        model.addAttribute("nbr_notifs", notificationRepository.findByReportedIsFalse().size());
-        model.addAttribute("nbr_notifs_reported", notificationRepository.findByReportedIsTrue().size());
+        model.addAttribute("nbr_notifs", notificationRepository.findByReportedIsFalseAndDisabledFalse().size());
+        model.addAttribute("nbr_notifs_reported", notificationRepository.findByReportedIsTrueAndDisabledFalse().size());
         return "dashboard";
     }
     

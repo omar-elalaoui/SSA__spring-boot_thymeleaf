@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface NotificationRepository extends JpaRepository<Notification, Long > {
     public Notification findByProjetid(String ref);
-    public List<Notification> findByReportedIsFalse();
-    public List<Notification> findByReportedIsTrue();
+    public List<Notification> findByReportedIsFalseAndDisabledFalse();
+    public List<Notification> findByReportedIsTrueAndDisabledFalse();
 }
