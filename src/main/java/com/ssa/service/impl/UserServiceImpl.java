@@ -47,6 +47,11 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
+    public void save_admin_pic(User user) {
+        userRepository.save(user);
+    }
+    
+    @Override
     public void update_user_profile(User user) {
         userRepository.save(user);
     }

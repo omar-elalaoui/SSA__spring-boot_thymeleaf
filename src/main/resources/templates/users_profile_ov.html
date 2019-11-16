@@ -31,28 +31,24 @@
                 <section class="panel">
                     <div class="panel-body">
                         <div class="thumb-info mb-md">
-                            <img th:src="@{/images/logged-user.jpg}" class="rounded img-responsive" alt="John Doe">
+                            <img th:if="${user.profile.image != null}" width="273px" height="273px" th:src="@{/user/profile/image}" class="rounded img-responsive" alt="John Doe">
+                            <img th:if="${user.profile.image == null}" width="273px" height="273px" th:src="@{/images/logged-user.jpg}" class="rounded img-responsive" alt="John Doe">
                             <div class="thumb-info-title">
                                 <span class="thumb-info-inner" th:text="${user.profile.prenom}+' '+${user.profile.nom}" ></span>
                                 <span class="thumb-info-type" th:if="${#request.getUserPrincipal().getName() == 'admin'}">Administrateur</span>
                                 <span class="thumb-info-type" th:if="${#request.getUserPrincipal().getName() != 'admin'}">Utilisateur</span>
                             </div>
                         </div>
-
                         <hr class="dotted short">
-
-                        <h6 class="text-muted">About</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis vulputate quam. Interdum et malesuada</p>
-
-                        <hr class="dotted short">
-
-                        <div class="social-icons-list">
-                            <a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                            <a style="background: gray;" class="pull-right edit-profile" href="#"><i class="fa fa-pencil"></i><span>edit</span></a>
+                        <div class="social-icons-list pull-right">
+                            <label for="profile_image">
+                                <form th:action="@{/user/profile/save_pic}" method="post" enctype="multipart/form-data" id="image_form">
+                                    <input id="profile_image" type="file" style="display:none" name="image">
+                                    <input type="submit" value="submit" hidden="hidden">
+                                </form>
+                                <a style="background: gray; cursor: pointer;" class="edit-profile"><i class="fa fa-pencil"></i><span>edit</span></a>
+                            </label>
                         </div>
-
                     </div>
                 </section>
             </div>

@@ -35,16 +35,11 @@
 
                         <hr class="dotted short">
 
-                        <h6 class="text-muted">About</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis vulputate quam. Interdum et malesuada</p>
-
-                        <hr class="dotted short">
-
-                        <div class="social-icons-list">
-                            <a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                            <a style="background: gray;" class="pull-right edit-profile" href="#"><i class="fa fa-pencil"></i><span>edit</span></a>
+                        <div class="social-icons-list pull-right">
+                            <label for="my-file-selector1">
+                                <input id="my-file-selector1" type="file" style="display:none" onchange="$('#upload-file-info1').html(this.files[0].name)">
+                                <a style="background: gray; cursor: pointer;" class=" edit-profile"><i class="fa fa-pencil"></i><span>edit</span></a>
+                            </label>
                         </div>
                     </div>
                 </section>

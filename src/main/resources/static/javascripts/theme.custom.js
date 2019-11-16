@@ -4,6 +4,10 @@ function cliquerSearche(){
 
 }
 
+document.getElementById("profile_image").onchange = function() {
+    document.getElementById("image_form").submit();
+};
+
 $("#span_searche").click(function() {
     $("#btn_searche").click();
 });

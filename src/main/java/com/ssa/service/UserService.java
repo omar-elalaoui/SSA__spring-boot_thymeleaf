@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface UserService {
     public void save(User user);
+    public void save_admin_pic(User user);
     public void update_user_profile(User user);
     public void update_admin_code(String admin_username, String code);
     public boolean update_admin_pwd(String nv_pwd, String nv_pwd_2);

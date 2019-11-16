@@ -16,6 +16,8 @@ public class Profile {
     private String prenom;
     private String email;
     private String bio;
+    @Lob
+    private byte[] image;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     private List<Note> notes;

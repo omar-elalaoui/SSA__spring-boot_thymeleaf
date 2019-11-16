@@ -5,13 +5,14 @@ import com.ssa.entity.Profile;
 import com.ssa.entity.User;
 import com.ssa.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.*;
 
 @Controller
@@ -105,4 +106,21 @@ public class UserController {
         return "redirect:/user/profile_ov";
     }
     
+    @PostMapping("/user/profile/save_pic")
+    public String user_pic(MultipartFile image) throws IOException {
+        if(!image.isEmpty()){
+            User user= userService.findById(userService.getcurrentUsername());
+            user.getProfile().setImage(image.getBytes());
+            userService.save_admin_pic(user);
+        }
+        return "redirect:/user/profile_ov";
+    }
+    
+    
+    @RequestMapping(value = "/user/profile/image", produces = MediaType.IMAGE_JPEG_VALUE)
+    @ResponseBody
+    public byte[] note_reinseignement() throws IOException {
+        User user= userService.findById(userService.getcurrentUsername());
+        return user.getProfile().getImage();
+    }
 }
