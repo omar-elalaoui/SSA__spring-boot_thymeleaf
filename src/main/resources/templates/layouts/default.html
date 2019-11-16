@@ -71,7 +71,7 @@
                 <div id="userbox" class="userbox">
                     <a href="#" data-toggle="dropdown">
                         <figure class="profile-picture">
-                            <img th:src="@{/images/review.jpg}" class="img-circle" data-lock-picture="assets/images/maciri.jpg" />
+                            <img th:src="@{/user/profile/image}" class="img-circle" data-lock-picture="assets/images/maciri.jpg" />
                         </figure>
                         <div class="profile-info" data-lock-name="Ismail" data-lock-email="youssef_maciri">
                             <span class="name" th:text="${@userServiceImpl.findById(#request.getUserPrincipal().getName()).profile.prenom}+' '+ ${@userServiceImpl.findById(#request.getUserPrincipal().getName()).profile.nom}"></span>
