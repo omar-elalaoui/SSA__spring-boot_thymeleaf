@@ -35,9 +35,18 @@
         <br>
         <br>
 
+
+        <div class="row" th:if="${param.erreur != null}">
+            <div class="col-md-6">
+                <div class="alert alert-danger" th:if="${param.erreur[0] == 'true'}">
+                    <strong><i class="fa fa-times"></i></strong> le code est incorrect
+                </div>
+                <div class="alert alert-success" th:if="${param.erreur[0] == 'false'}">
+                    <strong><i class="fa fa-check"></i></strong> le projet a été supprimé avec succès
+                </div>
+            </div>
+        </div>
         <div class="row">
-
-
             <div class="col-md-3 col-xl-3" th:each="projet: ${projets}">
                 <a th:href="@{'/projets/'+${projet.ref}+'/fiche'}">
                     <section class="panel ch_project_list_item">
@@ -53,7 +62,6 @@
                     </section>
                 </a>
             </div>
-
 
         </div>
 

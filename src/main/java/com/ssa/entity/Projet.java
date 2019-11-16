@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Projet {
+    
     @Id
     private String ref;
     @OneToOne(cascade = CascadeType.ALL)

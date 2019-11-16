@@ -34,6 +34,9 @@
             </div>
             <div class="panel-body">
                 <form th:action="@{/login}" method="post">
+                    <div class="alert alert-danger" id="errors" th:if="${param.error != null}">
+                       <i class="fa fa-times"></i> username ou mot de passe est incorrect
+                    </div>
                     <div class="form-group mb-lg">
                         <label>Utilisateur </label>
                         <div class="input-group input-group-icon">

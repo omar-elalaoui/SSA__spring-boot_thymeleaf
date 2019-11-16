@@ -29,6 +29,8 @@ public class ProjectController {
     @Autowired
     SuiviChantierServiceImpl suiviChantierService;
     @Autowired
+    UserServiceImpl userService;
+    @Autowired
     Phase1Repository phase1Service;
     @Autowired
     Phase2Repository phase2Service;
@@ -64,6 +66,22 @@ public class ProjectController {
         logService.supp_log(projectDes);
         projetService.deleteById(username);
         return "redirect:/projets";
+    }
+    
+    @PostMapping("/delete")
+    public String delete_user(String projet_ref, String autorization_code) {
+        User user= userService.findById("admin");
+        boolean erreur=true;
+        if(user.getCodePrev().equals(autorization_code)){
+            erreur=false;
+            Notification notification= notificationRepository.findByProjetid(projet_ref);
+            if(notification != null){ notificationService.deleteById(notification.getId());}
+            Projet projet= projetService.findById(projet_ref);
+            String projectDes= projet.getFicheProjet().getPrenom()+" "+projet.getFicheProjet().getNom()+" ("+projet.getRef()+")";
+            logService.supp_log(projectDes);
+            projetService.deleteById(projet_ref);
+        }
+        return "redirect:/projets?erreur="+erreur;
     }
     
     
