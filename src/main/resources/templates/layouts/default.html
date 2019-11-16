@@ -39,7 +39,7 @@
 
                 <span class="separator"></span>
 
-                <ul class="notifications" sec:authorize="hasRole('ADMIN')">
+                <ul class="notifications">
                     <li>
                         <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
@@ -131,7 +131,7 @@
                                     </a>
                                 </li>
 
-                                <li sec:authorize="hasRole('ADMIN')" class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/notifs') ? 'nav-expanded':''}">
+                                <li class="nav-parent" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/notifs') ? 'nav-expanded':''}">
                                     <a>
                                         <span class="pull-right label label-warning notif_span">0</span>
                                         <i class="fa fa-envelope" aria-hidden="true"></i>

@@ -47,8 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().loginPage("/login")
         .successHandler(loginSuccessHandler);
-        http.authorizeRequests().antMatchers("/", "/dash/**", "/projets/**", "/user/profile_ov", "/documents/**").hasRole("USER");
-        http.authorizeRequests().antMatchers( "/users/**", "/notifs/**", "/log/**", "/user/profile_param/**").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers("/", "/dash/**", "/projets/**", "/user/profile_ov", "/documents/**", "/notifs/**").hasRole("USER");
+        http.authorizeRequests().antMatchers( "/users/**", "/log/**", "/user/profile_param/**").hasRole("ADMIN");
     }
     
     
